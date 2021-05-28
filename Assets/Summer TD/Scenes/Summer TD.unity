@@ -4625,10 +4625,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1542195897}
   - component: {fileID: 1542195898}
+  - component: {fileID: 1542195899}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4640,11 +4641,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542195896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 35}
+  m_LocalPosition: {x: 0, y: 1, z: 35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1999795999}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1542195898
 MonoBehaviour:
@@ -4667,7 +4668,20 @@ MonoBehaviour:
   m_AudioVolume: 1
   m_Pause: 1
   m_Repeat: 1
-  _actionObject: {fileID: 0}
+  _actionObject: {fileID: 1542195896}
+--- !u!114 &1542195899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542195896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e74159d2dee4b4396f74bb548b5568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnRadius: 3
 --- !u!1001 &1550531455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5666,7 +5680,7 @@ Transform:
   m_Children:
   - {fileID: 997833307}
   m_Father: {fileID: 1999795999}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970446587
 GameObject:
@@ -6119,8 +6133,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1542195897}
   - {fileID: 1950570771}
+  - {fileID: 1542195897}
   - {fileID: 520439055}
   m_Father: {fileID: 0}
   m_RootOrder: 13
