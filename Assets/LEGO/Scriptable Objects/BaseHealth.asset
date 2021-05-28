@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BaseHealth
   m_EditorClassIdentifier: 
   Name: BaseHealth
-  InitialValue: 1
+  InitialValue: 20
   UseUI: 1
   UI: {fileID: 8322339850511969721, guid: 0bf4a7d593e8ee048be837c340ae442f, type: 3}
