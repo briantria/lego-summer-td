@@ -7,6 +7,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class EnemySpawner : MonoBehaviour, IAction
     {
         [SerializeField] private float _spawnRadius;
+        [SerializeField] private Transform _target;
+
         private LevelSpawnData _levelSpawnData;
 
         public void Activate()
@@ -36,6 +38,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
             Vector2 pos = Random.insideUnitCircle * Random.Range(0, _spawnRadius);
             Transform enemyTransform = enemyObj.transform;
             enemyTransform.localPosition = new Vector3(pos.x, 0, pos.y);
+
+            Frog frog = enemyObj.GetComponent<Frog>();
+            frog.SetTarget(_target);
         }
 
         private void OnDrawGizmosSelected()
