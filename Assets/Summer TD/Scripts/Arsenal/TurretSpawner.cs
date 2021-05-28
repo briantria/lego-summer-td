@@ -4,11 +4,14 @@ using UnityEngine;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
-    [RequireComponent(typeof(EnemySpawner))]
+    [RequireComponent(typeof(CustomAction))]
     public class TurretSpawner : MonoBehaviour, IAction
     {
         [SerializeField] private GameObject _turretSeller;
+
+        [Space(8)]
         [SerializeField] private GameObject _basicTurret;
+        [SerializeField] private GameObject _gameStartTrigger;
 
         private void Start()
         {
@@ -19,12 +22,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             _turretSeller.SetActive(false);
             _basicTurret.SetActive(true);
+            _gameStartTrigger.SetActive(true);
         }
 
         private void ShowTurretSeller()
         {
             _turretSeller.SetActive(true);
             _basicTurret.SetActive(false);
+            _gameStartTrigger.SetActive(false);
         }
 
         public void Activate()

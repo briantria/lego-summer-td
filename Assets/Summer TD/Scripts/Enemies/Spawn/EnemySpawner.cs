@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
-    [RequireComponent(typeof(EnemySpawner))]
+    [RequireComponent(typeof(CustomAction))]
     public class EnemySpawner : MonoBehaviour, IAction
     {
         [SerializeField] private Vector2 _spawnArea;
