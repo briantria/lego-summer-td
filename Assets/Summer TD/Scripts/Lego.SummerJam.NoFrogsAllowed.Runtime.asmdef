@@ -2,8 +2,9 @@
     "name": "Lego.SummerJam.NoFrogsAllowed.Runtime",
     "rootNamespace": "",
     "references": [
+        "Unity.TextMeshPro",
         "Unity.LEGO.Behaviours",
-        "Unity.TextMeshPro"
+        "Unity.LEGO.Game"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
