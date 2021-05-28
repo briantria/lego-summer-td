@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpStrength: 40
+  _baseHealth: {fileID: 11400000, guid: c355e99b28caed84dbf0613ef3ba481a, type: 2}
 --- !u!1 &6084495481095335383
 GameObject:
   m_ObjectHideFlags: 0

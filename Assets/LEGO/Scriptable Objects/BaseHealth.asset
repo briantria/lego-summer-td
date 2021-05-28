@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4816ce2e8f1bd80409a59d985213255a, type: 3}
-  m_Name: Variable
+  m_Name: BaseHealth
   m_EditorClassIdentifier: 
   Name: BaseHealth
-  InitialValue: 100
+  InitialValue: 1
   UseUI: 1
   UI: {fileID: 8322339850511969721, guid: 0bf4a7d593e8ee048be837c340ae442f, type: 3}

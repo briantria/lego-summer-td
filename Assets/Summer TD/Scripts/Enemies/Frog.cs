@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.LEGO.Game;
+using Unity.LEGO.Behaviours.Triggers;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
     public class Frog : MonoBehaviour
     {
+        #region Serialized Fields
         [SerializeField] private float _jumpStrength = 2.0f;
+        [SerializeField] private int _damage = 1;
+        
+        [Space(10)]
+        // Note: BaseHealth Variable was created using LEGO Microgame Editors
+        // It's a ScriptableObject located at Assets/LEGO/Scriptable Objects
+        [SerializeField] private Variable _baseHealth;
+        #endregion
 
         private Transform _target;
         private Rigidbody _rb;
@@ -37,7 +47,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             if (other.CompareTag("Base"))
             {
-                Debug.Log("Base Attacked!");
+                //Debug.Log("Base Attacked!");
+                int baseHealth = VariableManager.GetValue(_baseHealth);
+                VariableManager.SetValue(_baseHealth, baseHealth - 1);
                 Destroy(gameObject);
             }
         }
