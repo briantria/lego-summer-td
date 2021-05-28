@@ -25,12 +25,21 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             Vector3 jumpVector = _target.position - transform.position;
             jumpVector.y = 0;
-            jumpVector.y = jumpVector.magnitude * 3;
+            jumpVector.y = jumpVector.magnitude * 5;
             jumpVector.Normalize();
             jumpVector *= _jumpStrength;
-            Debug.Log("Jump Attempt! " + jumpVector.ToString());
+
             _rb.velocity = Vector3.zero;
             _rb.AddForce(jumpVector, ForceMode.Impulse);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Base"))
+            {
+                Debug.Log("Base Attacked!");
+                Destroy(gameObject);
+            }
         }
 
         public void SetTarget(Transform target)

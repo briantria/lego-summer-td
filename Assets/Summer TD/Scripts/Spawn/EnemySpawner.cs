@@ -6,14 +6,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
 {
     public class EnemySpawner : MonoBehaviour, IAction
     {
-        [SerializeField] private float _spawnRadius;
+        [SerializeField] private Vector2 _spawnArea;
         [SerializeField] private Transform _target;
 
         private LevelSpawnData _levelSpawnData;
 
         public void Activate()
         {
-            Debug.Log("GO!");
             _levelSpawnData = Resources.Load<LevelSpawnData>("LevelSpawnData/Level_0");
             StartCoroutine(StartLevel(_levelSpawnData.SpawnList));
         }
@@ -32,55 +31,26 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private IEnumerator SpawnEnemy(float waitTime, GameObject enemyPrefab)
         {
-            yield return new WaitForSeconds(waitTime);
-            Debug.Log("SPAWN!");
             GameObject enemyObj = Instantiate(enemyPrefab, transform);
-            Vector2 pos = Random.insideUnitCircle * Random.Range(0, _spawnRadius);
+            Vector2 pos = _spawnArea * 0.5f;
+            pos.x = Random.Range(-pos.x, pos.x);
+            pos.y = Random.Range(-pos.y, pos.y);
             Transform enemyTransform = enemyObj.transform;
             enemyTransform.localPosition = new Vector3(pos.x, 0, pos.y);
 
             Frog frog = enemyObj.GetComponent<Frog>();
             frog.SetTarget(_target);
+            yield return new WaitForSeconds(waitTime);
         }
 
         private void OnDrawGizmosSelected()
         {
-            /*
-             
-             var theta:float = 0;
-             var x:float = Radius*Mathf.Cos(theta);
-             var y:float = Radius*Mathf.Sin(theta);
-             var pos:Vector3 = T.position+Vector3(x,0,y);
-             var newPos:Vector3 = pos;
-             var lastPos:Vector3 = pos;
-             for(theta = 0.1;theta<Mathf.PI*2;theta+=0.1){
-              x = Radius*Mathf.Cos(theta);
-              y = Radius*Mathf.Sin(theta);
-              newPos = T.position+Vector3(x,0,y);
-              Gizmos.DrawLine(pos,newPos);
-              pos = newPos;
-             }
-             Gizmos.DrawLine(pos,lastPos);
-             */
+            Vector3 spawnArea = new Vector3(_spawnArea.x, 4, _spawnArea.y);
+            Vector3 spawnCenter = transform.position;
+            spawnCenter.y = spawnArea.y;
 
-            Gizmos.color = Color.yellow;
-            float theta = 0.0f;
-            float x = _spawnRadius * Mathf.Cos(theta);
-            float y = _spawnRadius * Mathf.Sin(theta);
-            Vector3 pos = transform.position + new Vector3(x, 0, y);
-            Vector3 newPos = pos;
-            Vector3 lastPos = pos;
-
-            for (theta = 0.5f; theta < Mathf.PI * 2; theta += 0.5f)
-            {
-                x = _spawnRadius * Mathf.Cos(theta);
-                y = _spawnRadius * Mathf.Sin(theta);
-                newPos = transform.position + new Vector3(x, 0, y);
-                Gizmos.DrawLine(pos, newPos);
-                pos = newPos;
-            }
-
-            Gizmos.DrawLine(pos, lastPos);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(spawnCenter, spawnArea);
         }
     }
 }
