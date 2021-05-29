@@ -786,6 +786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6896956215786436734}
   - component: {fileID: 8986237603884862460}
+  - component: {fileID: 4997825269043314693}
   m_Layer: 0
   m_Name: BasicTurret
   m_TagString: Untagged
@@ -826,6 +827,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activateGuideObj: {fileID: 4674297675948775960}
+--- !u!114 &4997825269043314693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6896956215786436733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930bce47b85de484b8282c7549550406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turretPivot: {fileID: 6896956215402012518}
+  _horizontalSpeed: 2
+  _verticalSpeed: -2
 --- !u!1001 &119371835166390007
 PrefabInstance:
   m_ObjectHideFlags: 0
