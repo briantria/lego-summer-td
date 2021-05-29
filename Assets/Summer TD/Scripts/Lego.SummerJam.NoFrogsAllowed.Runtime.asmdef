@@ -5,7 +5,8 @@
         "Unity.TextMeshPro",
         "Cinemachine",
         "Unity.LEGO.Behaviours",
-        "Unity.LEGO.Game"
+        "Unity.LEGO.Game",
+        "Unity.LEGO.Minifig"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

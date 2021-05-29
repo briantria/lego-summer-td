@@ -13,6 +13,16 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private GameObject _basicTurret;
         [SerializeField] private GameObject _gameStartTrigger;
 
+        private void OnEnable()
+        {
+            GameLoopController.OnReleaseFrogs += OnReleaseFrogs;
+        }
+
+        private void OnDisable()
+        {
+            GameLoopController.OnReleaseFrogs -= OnReleaseFrogs;
+        }
+
         private void Start()
         {
             ShowTurretSeller();
@@ -29,6 +39,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             _turretSeller.SetActive(true);
             _basicTurret.SetActive(false);
+            _gameStartTrigger.SetActive(false);
+        }
+
+        private void OnReleaseFrogs()
+        {
             _gameStartTrigger.SetActive(false);
         }
 
