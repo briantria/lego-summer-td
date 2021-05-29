@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4629418624631982344}
   - component: {fileID: 4549784683787611829}
   - component: {fileID: 6921702089759577294}
+  - component: {fileID: 8076446561680713147}
   m_Layer: 0
   m_Name: FrogPawn
   m_TagString: Untagged
@@ -62,7 +63,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpStrength: 40
+  _damage: 1
   _baseHealth: {fileID: 11400000, guid: c355e99b28caed84dbf0613ef3ba481a, type: 2}
+--- !u!65 &8076446561680713147
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826870719048086441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6084495481095335383
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +89,6 @@ GameObject:
   - component: {fileID: 6333434752874742219}
   - component: {fileID: 6544419971126635346}
   - component: {fileID: 5145207298299697976}
-  - component: {fileID: 3992422987000082696}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -145,16 +159,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3992422987000082696
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6084495481095335383}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

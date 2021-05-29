@@ -54,6 +54,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
             }
         }
 
+        public void Damage(float damage)
+        {
+            Debug.Log("damage!");
+        }
+
         public void SetTarget(Transform target)
         {
             _target = target;
@@ -72,7 +77,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             //if a collider was hit, we are grounded
             bool isGrounded = hits.Length > 0;
-            Debug.Log("grounded? " + isGrounded.ToString());
+            //Debug.Log("grounded? " + isGrounded.ToString());
             return isGrounded;
         }
     }
