@@ -1185,6 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107372b391c93d34f961db54050a139f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minifigController: {fileID: 4124099547603127727}
 --- !u!114 &274862584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7086,6 +7087,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4997825269043314693, guid: 7863f99f232226d4e848c9add54a3776,
+        type: 3}
+      propertyPath: _playerTransform
+      value: 
+      objectReference: {fileID: 5769543135783787036}
     - target: {fileID: 6896956215786436733, guid: 7863f99f232226d4e848c9add54a3776,
         type: 3}
       propertyPath: m_Name
@@ -9281,7 +9287,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 0.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -9290,7 +9296,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.39
+    m_Strength: 0.66
     m_Bias: 0.3
     m_NormalBias: 0.1
     m_NearPlane: 1.5

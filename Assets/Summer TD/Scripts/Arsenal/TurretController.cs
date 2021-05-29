@@ -7,6 +7,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class TurretController : MonoBehaviour
     {
         #region Serialized Field
+        [SerializeField] private Transform _playerTransform;
         [SerializeField] private Transform _turretPivot;
 
         [Space(8)]
@@ -18,13 +19,25 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void OnEnable()
         {
+            GameLoopController.OnReleaseFrogs += OnReleaseFrogs;
             EventManager.AddListener<OptionsMenuEvent>(OnGamePause);
-            _aimRoutine = StartCoroutine(AimRoutine());
         }
 
         private void OnDisable()
         {
+            GameLoopController.OnReleaseFrogs -= OnReleaseFrogs;
             EventManager.RemoveListener<OptionsMenuEvent>(OnGamePause);
+        }
+
+        private void OnReleaseFrogs()
+        {
+            if (_playerTransform == null)
+            {
+                return;
+            }
+
+            _playerTransform.forward = transform.forward;
+            _aimRoutine = StartCoroutine(AimRoutine());
         }
 
         public void OnGamePause(OptionsMenuEvent evt)
