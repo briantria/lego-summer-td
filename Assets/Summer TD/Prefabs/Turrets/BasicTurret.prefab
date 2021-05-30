@@ -1456,7 +1456,7 @@ PrefabInstance:
     - target: {fileID: 5963510644016963638, guid: 64d1d089ce11e4eadaa32af6d2e3d1fd,
         type: 3}
       propertyPath: m_Pause
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5963510644016963638, guid: 64d1d089ce11e4eadaa32af6d2e3d1fd,
         type: 3}

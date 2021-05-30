@@ -24,6 +24,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void Start()
         {
             _rb = GetComponent<Rigidbody>();
+            _rb.velocity = Vector3.zero;
         }
 
         private void FixedUpdate()
@@ -41,6 +42,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             _rb.velocity = Vector3.zero;
             _rb.AddForce(jumpVector, ForceMode.Impulse);
+            //_rb.velocity = Vector3.Min(_rb.velocity, _rb.velocity.normalized * 2.0f);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -64,6 +66,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _target = target;
         }
 
+        // TODO: Collide with 'Environment' layers only
         // source: https://gamedev.stackexchange.com/questions/105399/how-to-check-if-grounded-with-rigidbody
         private bool IsGrounded()
         {

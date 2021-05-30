@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: connectedTo.Array.data[18].indexOfConnection
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 687400692330738185, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1772408607053875195, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_Name
@@ -334,6 +339,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c9b59b794ef04a44e9ecbe158638805c, type: 2}
+    - target: {fileID: 7984796582155067641, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8238198972923681592, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: colliding
@@ -1140,6 +1150,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Counter Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133124797175098362, guid: 0ad34d748b0f8584ab90acec1c11f21f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543396326491833338, guid: 0ad34d748b0f8584ab90acec1c11f21f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ad34d748b0f8584ab90acec1c11f21f, type: 3}
@@ -4659,6 +4679,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1005948217189576491, guid: d39f04291e3b341f78bf4cfa451accd7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1090493524783639597, guid: d39f04291e3b341f78bf4cfa451accd7,
         type: 3}
       propertyPath: connected.Array.size
@@ -4723,6 +4748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: connectedTo.Array.data[18].indexOfConnection
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046657813960642690, guid: d39f04291e3b341f78bf4cfa451accd7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560168150853749624, guid: d39f04291e3b341f78bf4cfa451accd7,
         type: 3}
@@ -4951,6 +4981,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1227389094}
     m_Modifications:
+    - target: {fileID: 687400692330738185, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1772408607053875195, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_Name
@@ -5076,6 +5111,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c9b59b794ef04a44e9ecbe158638805c, type: 2}
+    - target: {fileID: 7984796582155067641, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8238198972923681592, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: colliding
@@ -6720,6 +6760,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b8712bbba06fec942871a200beae9939, type: 2}
+    - target: {fileID: 7576331689497529785, guid: 5073354b3112c48619a5a0a18f938ee7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691820671168910112, guid: 5073354b3112c48619a5a0a18f938ee7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5073354b3112c48619a5a0a18f938ee7, type: 3}
 --- !u!43 &1743493828
@@ -7067,6 +7117,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871478161543332380, guid: 455247ff710ea4752a3ebae0c04d375f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942706587782827372, guid: 455247ff710ea4752a3ebae0c04d375f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 455247ff710ea4752a3ebae0c04d375f, type: 3}

@@ -6,7 +6,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
 {
     public class Cannonball : MonoBehaviour
     {
-        private float _damage = 1.0f;
+        [SerializeField] private float _explosionStrength = 2.0f;
+        [SerializeField] private float _explosionRadius = 5.0f;
+        [SerializeField] private float _damage = 1.0f;
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -19,8 +21,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 return;
             }
 
-            Debug.Log("on hit: " + hitLayerName);
-            Collider[] colliderHits = Physics.OverlapSphere(transform.position, 5.0f, mask);
+            //Debug.Log("on hit: " + hitLayerName);
+            Collider[] colliderHits = Physics.OverlapSphere(transform.position, _explosionRadius, mask);
             foreach (Collider hit in colliderHits)
             {
                 Frog frog = hit.gameObject.GetComponent<Frog>();
@@ -34,8 +36,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
                 if (rb != null)
                 {
-                    Debug.Log("explosion affect " + frog.gameObject.name);
-                    rb.AddExplosionForce(300.0f, transform.position, 20.0f);
+                    //Debug.Log("explosion affect " + frog.gameObject.name);
+                    //rb.AddExplosionForce(_explosionStrength, transform.position, _explosionRadius);
+                    Vector3 forceDir = (frog.transform.position - transform.position).normalized * _explosionStrength;
+                    rb.velocity = Vector3.zero;
+                    rb.AddForceAtPosition(forceDir, transform.position, ForceMode.Impulse);
                 }
             }
 
