@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +10,17 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void OnCollisionEnter(Collision collision)
         {
-            //RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5.0f, Vector3.zero);
-            // TOFIX:
-            LayerMask mask = LayerMask.GetMask(new string[] { "Default", "Environment" });
-            Collider[] colliderHits = Physics.OverlapSphere(transform.position, 5.0f, mask);
+            int hitLayer = collision.gameObject.layer;
+            string hitLayerName = LayerMask.LayerToName(hitLayer);
+            string[] maskNames = new string[] { "Enemy", "Environment" };
+            LayerMask mask = LayerMask.GetMask(maskNames);
+            if (!maskNames.ToList().Contains(hitLayerName))
+            {
+                return;
+            }
 
+            Debug.Log("on hit: " + hitLayerName);
+            Collider[] colliderHits = Physics.OverlapSphere(transform.position, 5.0f, mask);
             foreach (Collider hit in colliderHits)
             {
                 Frog frog = hit.gameObject.GetComponent<Frog>();
@@ -28,6 +34,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
                 if (rb != null)
                 {
+                    Debug.Log("explosion affect " + frog.gameObject.name);
                     rb.AddExplosionForce(300.0f, transform.position, 20.0f);
                 }
             }

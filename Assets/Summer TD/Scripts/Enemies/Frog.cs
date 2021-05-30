@@ -56,7 +56,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         public void Damage(float damage)
         {
-            Debug.Log("damage!");
+            //Debug.Log("damage!");
         }
 
         public void SetTarget(Transform target)
