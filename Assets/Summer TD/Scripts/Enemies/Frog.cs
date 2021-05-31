@@ -9,8 +9,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class Frog : MonoBehaviour
     {
         #region Serialized Fields
+        [SerializeField] private float _life = 5.0f;
         [SerializeField] private float _jumpStrength = 2.0f;
-        [SerializeField] private int _damage = 1;
         
         [Space(10)]
         // Note: BaseHealth Variable was created using LEGO Microgame Editors
@@ -58,7 +58,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         public void Damage(float damage)
         {
-            //Debug.Log("damage!");
+            _life -= damage;
+            if (_life <= 0)
+            {
+                // TODO: score!
+                // TODO: death animation
+                Destroy(gameObject);
+            }
         }
 
         public void SetTarget(Transform target)

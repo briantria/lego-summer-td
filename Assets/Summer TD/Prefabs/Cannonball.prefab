@@ -5017,4 +5017,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _explosionStrength: 50
   _explosionRadius: 5
-  _damage: 1
+  _damage: 2
