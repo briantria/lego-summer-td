@@ -76,13 +76,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
         // source: https://gamedev.stackexchange.com/questions/105399/how-to-check-if-grounded-with-rigidbody
         private bool IsGrounded()
         {
+            LayerMask mask = LayerMask.NameToLayer("Environment");
             RaycastHit[] hits;
 
             //We raycast down 1 pixel from this position to check for a collider
             float radius = 0.1f;
             Vector3 positionToCheck = transform.position;
             positionToCheck.y -= radius * 1.01f;
-            hits = Physics.SphereCastAll(positionToCheck, radius, new Vector3(0, -1, 0), radius);
+            hits = Physics.SphereCastAll(positionToCheck, radius, new Vector3(0, -1, 0), radius, 1 << mask.value);
 
             //if a collider was hit, we are grounded
             bool isGrounded = hits.Length > 0;

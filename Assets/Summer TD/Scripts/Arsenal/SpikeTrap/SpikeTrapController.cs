@@ -1,35 +1,21 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using Unity.LEGO.Game;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
-    [RequireComponent(typeof(CustomAction))]
-    public class SpikeTrapController : MonoBehaviour, IAction
+    public class SpikeTrapController : MonoBehaviour
     {
-        [SerializeField] private GameObject _spikeSellerObj;
-        [SerializeField] private GameObject _spikeTrapObj;
+        [SerializeField] private float _damage;
 
-        private void Start()
+        private void OnTriggerEnter(Collider collider)
         {
-            ShowSpikeSeller();
-        }
-
-        private void ShowSpikeSeller()
-        {
-            _spikeSellerObj.SetActive(true);
-            _spikeTrapObj.SetActive(false);
-        }
-
-        private void ShowSpikeTrap()
-        {
-            _spikeSellerObj.SetActive(false);
-            _spikeTrapObj.SetActive(true);
-        }
-
-        public void Activate()
-        {
-            ShowSpikeTrap();
+            //Debug.Log("triggered by " + collider.name);
+            Frog frog = collider.GetComponent<Frog>();
+            if (frog != null)
+            {
+                frog.Damage(_damage);
+            }
         }
     }
 }

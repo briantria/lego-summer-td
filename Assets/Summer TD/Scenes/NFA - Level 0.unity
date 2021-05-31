@@ -2428,7 +2428,7 @@ GameObject:
   - component: {fileID: 423121312}
   - component: {fileID: 423121311}
   - component: {fileID: 423121310}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3390,6 +3390,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 652405771}
+  - component: {fileID: 652405772}
+  - component: {fileID: 652405773}
   m_Layer: 0
   m_Name: Spike Trap
   m_TagString: Untagged
@@ -3413,6 +3415,42 @@ Transform:
   m_Father: {fileID: 1999795999}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652405772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652405770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e899a6b5a898b4d9f666c014f378fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Scope: 1
+  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Default.png
+  m_FlashColour: {r: 0.6901961, g: 1.3411765, b: 0.50980395, a: 2}
+  m_Brick: {fileID: 0}
+  m_BrickPivotOffset: {x: 0, y: 0, z: 0}
+  m_Audio: {fileID: 0}
+  m_AudioVolume: 1
+  m_Pause: 1
+  m_Repeat: 1
+  _actionObject: {fileID: 652405770}
+--- !u!114 &652405773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652405770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4288c26c62252e4cb0e98bd939ee798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spikeSellerObj: {fileID: 887635753}
+  _spikeTrapObj: {fileID: 1077248852}
 --- !u!1 &682160337
 GameObject:
   m_ObjectHideFlags: 0
@@ -4391,13 +4429,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1077248853}
   - component: {fileID: 1077248854}
-  m_Layer: 0
+  - component: {fileID: 1077248855}
+  m_Layer: 15
   m_Name: Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1077248853
 Transform:
   m_ObjectHideFlags: 0
@@ -4426,6 +4465,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 1, z: 5}
   m_Center: {x: 2.5, y: 0.5, z: -2.5}
+--- !u!114 &1077248855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077248852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67fb22a9620155449e76fcddb40ba8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!1 &1105753474
 GameObject:
   m_ObjectHideFlags: 0
@@ -6709,6 +6761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
+      propertyPath: m_Target
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
       propertyPath: m_Distance
       value: 5
       objectReference: {fileID: 0}
@@ -6717,6 +6774,16 @@ PrefabInstance:
       propertyPath: m_ShowPrompt
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_SpecificTargetActions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_SpecificTargetActions.Array.data[0]
+      value: 
+      objectReference: {fileID: 652405772}
     - target: {fileID: 5180709464083907483, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_RootOrder
