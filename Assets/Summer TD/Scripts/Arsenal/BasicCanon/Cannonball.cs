@@ -8,7 +8,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
     {
         [SerializeField] private float _explosionStrength = 2.0f;
         [SerializeField] private float _explosionRadius = 5.0f;
-        [SerializeField] private float _damage = 1.0f;
+        [SerializeField] private float _damage = 2.0f;
 
         private void OnCollisionEnter(Collision collision)
         {
