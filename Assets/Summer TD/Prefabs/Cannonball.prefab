@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5195357822759115710}
   - component: {fileID: 529871854286148620}
   - component: {fileID: 1141863412008306753}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8879137686721043596}
   - component: {fileID: 1162847011013668158}
   - component: {fileID: 5218114391277212353}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Cannonball
   m_TagString: Projectile
   m_Icon: {fileID: 0}

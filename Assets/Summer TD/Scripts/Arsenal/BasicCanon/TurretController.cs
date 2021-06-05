@@ -7,8 +7,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class TurretController : MonoBehaviour
     {
         #region Serialized Field
-        [SerializeField] private Transform _playerTransform;
-        [SerializeField] private Transform _turretPivot;
+        [SerializeField] private Transform _verticalPivot;
+        [SerializeField] private Transform _horizontalPivot;
+        [SerializeField] private Transform _playerSeat;
 
         [Space(8)]
         [SerializeField] private float _horizontalSpeed = 2.0f;
@@ -16,6 +17,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         #endregion
 
         private Coroutine _aimRoutine;
+        private Transform _playerTransform;
 
         private void OnEnable()
         {
@@ -36,7 +38,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 return;
             }
 
-            _playerTransform.forward = transform.forward;
+            Vector3 playerSeat = _playerSeat.position;
+            playerSeat.y += 0.3f;
+
+            _playerTransform.position = playerSeat;
+            _playerTransform.forward = _playerSeat.right;
             _aimRoutine = StartCoroutine(AimRoutine());
         }
 
@@ -52,18 +58,26 @@ namespace Lego.SummerJam.NoFrogsAllowed
             }
         }
 
+        public void SetPlayer(Transform playerTransform)
+        {
+            _playerTransform = playerTransform;
+        }
+
         private IEnumerator AimRoutine()
         {
+            if (_horizontalPivot == null ||
+                _verticalPivot == null)
+            {
+                yield break;
+            }
+
             while (true)
             {
                 float h = _horizontalSpeed * Input.GetAxis("Mouse X");
-                transform.Rotate(0, h, 0);
+                _horizontalPivot.Rotate(0, h, 0);
 
-                if (_turretPivot != null)
-                {
-                    float v = _verticalSpeed * Input.GetAxis("Mouse Y");
-                    _turretPivot.Rotate(v, 0, 0);
-                }
+                float v = _verticalSpeed * Input.GetAxis("Mouse Y");
+                _verticalPivot.Rotate(0, 0, v);
 
                 yield return new WaitForEndOfFrame();
             }
