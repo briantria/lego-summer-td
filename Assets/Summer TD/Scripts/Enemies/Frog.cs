@@ -11,11 +11,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
         #region Serialized Fields
         [SerializeField] private float _life = 5.0f;
         [SerializeField] private float _jumpStrength = 2.0f;
+        [SerializeField] private int _damage = 1;
+        [SerializeField] private int _coinDrop = 10;
         
         [Space(10)]
-        // Note: BaseHealth Variable was created using LEGO Microgame Editors
+        // Note: The following 'Variable(s)' was created using LEGO Microgame Editors
         // It's a ScriptableObject located at Assets/LEGO/Scriptable Objects
         [SerializeField] private Variable _baseHealth;
+        [SerializeField] private Variable _coins;
         #endregion
 
         private Transform _target;
@@ -50,8 +53,10 @@ namespace Lego.SummerJam.NoFrogsAllowed
             if (other.CompareTag("Base"))
             {
                 //Debug.Log("Base Attacked!");
+                // TODO: base damage 
+
                 int baseHealth = VariableManager.GetValue(_baseHealth);
-                VariableManager.SetValue(_baseHealth, baseHealth - 1);
+                VariableManager.SetValue(_baseHealth, baseHealth - _damage);
                 Destroy(gameObject);
             }
         }
@@ -61,8 +66,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _life -= damage;
             if (_life <= 0)
             {
-                // TODO: score!
                 // TODO: death animation
+                // TODO: coin drop animation
+
+                int coinCount = VariableManager.GetValue(_coins);
+                VariableManager.SetValue(_coins, coinCount + _coinDrop);
+
                 Destroy(gameObject);
             }
         }

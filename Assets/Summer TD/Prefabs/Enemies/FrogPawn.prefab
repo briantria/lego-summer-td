@@ -64,7 +64,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _life: 5
   _jumpStrength: 50
+  _damage: 1
+  _coinDrop: 10
   _baseHealth: {fileID: 11400000, guid: c355e99b28caed84dbf0613ef3ba481a, type: 2}
+  _coins: {fileID: 11400000, guid: 74aa89e56d40b27478f9e25850a8a552, type: 2}
 --- !u!65 &8076446561680713147
 BoxCollider:
   m_ObjectHideFlags: 0
