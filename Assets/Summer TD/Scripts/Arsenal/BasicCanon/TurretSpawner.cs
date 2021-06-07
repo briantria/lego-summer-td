@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.LEGO.Game;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
@@ -12,6 +13,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private GameObject _basicTurret;
         [SerializeField] private GameObject _turretSeller;
         [SerializeField] private GameObject _gameStartTrigger;
+
+        [Space(8)]
+        [SerializeField] private int _price;
+
+        [Space(10)]
+        // Note: The following 'Variable(s)' was created using LEGO Microgame Editors
+        // It's a ScriptableObject located at Assets/LEGO/Scriptable Objects
+        [SerializeField] private Variable _coins;
         #endregion
 
         private TurretController _turretController;
@@ -61,6 +70,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         public void Activate()
         {
+            int currentCoins = VariableManager.GetValue(_coins);
+            if (currentCoins - _price < 0)
+            {
+                return;
+            }
+
+            VariableManager.SetValue(_coins, currentCoins - _price);
             ShowTurret();
         }
     }
