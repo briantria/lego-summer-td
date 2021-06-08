@@ -8,13 +8,17 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public enum GameState
     {
         BuildMode,
+        LevelIntro,
         ShootMode
     }
 
     [RequireComponent(typeof(CustomAction))]
     public class GameLoopController : MonoBehaviour, IAction
     {
+        public static Action<GameState> OnChangeGameState;
+
         [SerializeField] private MinifigController _minifigController;
+        [SerializeField] private Transform _tpsCamTransform;
 
         public static Action OnReleaseFrogs;
         private GameState _currentGameState;
@@ -22,19 +26,18 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void OnEnable()
         {
             EventManager.AddListener<OptionsMenuEvent>(OnGamePause);
+            GameStartAction.OnGameStart += OnLevelStart;
         }
 
         private void OnDisable()
         {
             EventManager.RemoveListener<OptionsMenuEvent>(OnGamePause);
+            GameStartAction.OnGameStart -= OnLevelStart;
         }
 
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-            _currentGameState = GameState.BuildMode;
-            _minifigController.SetInputEnabled(true);
+            ChangeToBuildMode();
         }
 
         public void Activate()
@@ -43,16 +46,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
             {
                 case GameState.BuildMode:
                     {
-                        OnReleaseFrogs?.Invoke();
-                        _currentGameState = GameState.ShootMode;
-                        _minifigController.SetInputEnabled(false);
-                        Cursor.lockState = CursorLockMode.Locked;
-                        Cursor.visible = false;
+                        ChangeToShootMode();
                         break;
                     }
                 default:
                     break;
             }
+
+            OnChangeGameState?.Invoke(_currentGameState);
         }
 
         public void OnGamePause(OptionsMenuEvent evt)
@@ -67,5 +68,37 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
+
+        #region System.Action Handlers
+        private void OnLevelStart()
+        {
+            Activate();
+        }
+        #endregion
+
+        #region Game State Handlers
+        private void ChangeToBuildMode()
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+            _currentGameState = GameState.BuildMode;
+            _minifigController.SetInputEnabled(true);
+        }
+
+        private void ChangeToLevelIntro()
+        { 
+            // TODO: Activate Intro Cam
+            // TODO: Activate Enemy Spawn
+        }
+
+        private void ChangeToShootMode()
+        {
+            OnReleaseFrogs?.Invoke();
+            _currentGameState = GameState.ShootMode;
+            _minifigController.SetInputEnabled(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        #endregion
     }
 }
