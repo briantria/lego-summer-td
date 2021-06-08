@@ -1119,7 +1119,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 274862585}
-  - component: {fileID: 274862584}
   - component: {fileID: 274862583}
   m_Layer: 0
   m_Name: Game Loop Controller
@@ -1141,28 +1140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minifigController: {fileID: 4124099547603127727}
---- !u!114 &274862584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274862582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e899a6b5a898b4d9f666c014f378fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Scope: 1
-  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Default.png
-  m_FlashColour: {r: 0.6901961, g: 1.3411765, b: 0.50980395, a: 2}
-  m_Brick: {fileID: 0}
-  m_BrickPivotOffset: {x: 0, y: 0, z: 0}
-  m_Audio: {fileID: 0}
-  m_AudioVolume: 1
-  m_Pause: 1
-  m_Repeat: 1
-  _actionObject: {fileID: 274862582}
 --- !u!4 &274862585
 Transform:
   m_ObjectHideFlags: 0
@@ -4921,7 +4898,6 @@ Transform:
   m_Children:
   - {fileID: 351177251}
   - {fileID: 969867885}
-  - {fileID: 1057506666}
   m_Father: {fileID: 1951148139}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5076,6 +5052,8 @@ GameObject:
   - component: {fileID: 969867888}
   - component: {fileID: 969867887}
   - component: {fileID: 969867886}
+  - component: {fileID: 969867892}
+  - component: {fileID: 969867891}
   m_Layer: 0
   m_Name: Game Start Trigger
   m_TagString: Untagged
@@ -5167,6 +5145,40 @@ MonoBehaviour:
   importSettings:
     keys: 
     values: []
+--- !u!114 &969867891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969867884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49853fe61c68a644823d1a83e8fbd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &969867892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969867884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e899a6b5a898b4d9f666c014f378fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Scope: 1
+  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Default.png
+  m_FlashColour: {r: 0.6901961, g: 1.3411765, b: 0.50980395, a: 2}
+  m_Brick: {fileID: 0}
+  m_BrickPivotOffset: {x: 0, y: 0, z: 0}
+  m_Audio: {fileID: 0}
+  m_AudioVolume: 1
+  m_Pause: 1
+  m_Repeat: 1
+  _actionObject: {fileID: 969867884}
 --- !u!4 &984344508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1001764359956896701, guid: e091f61a413b7c443bcb03c9d0e2f23a,
@@ -5433,121 +5445,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041836899}
   m_Mesh: {fileID: 1974953648}
---- !u!1001 &1057506665
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 949655932}
-    m_Modifications:
-    - target: {fileID: 566993407078439750, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_Pause
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674297675948775960, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4997825269043314693, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: _playerTransform
-      value: 
-      objectReference: {fileID: 5769543135783787036}
-    - target: {fileID: 6364743404010336108, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364743404010336108, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436733, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_Name
-      value: BasicTurret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436733, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863108293684996773, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.40000153
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863108293684996773, guid: 7863f99f232226d4e848c9add54a3776,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.40000153
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7863f99f232226d4e848c9add54a3776, type: 3}
---- !u!4 &1057506666 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6896956215786436734, guid: 7863f99f232226d4e848c9add54a3776,
-    type: 3}
-  m_PrefabInstance: {fileID: 1057506665}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1067590332
 GameObject:
   m_ObjectHideFlags: 0
@@ -6666,7 +6563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: -3.5, y: 5, z: 0}
+  ShoulderOffset: {x: -3.5, y: 3, z: 0}
   VerticalArmLength: 0.8
   CameraSide: 1
   CameraDistance: 8
@@ -6837,23 +6734,23 @@ PrefabInstance:
     - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_SpecificTargetActions.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_SpecificTargetActions.Array.data[0]
       value: 
-      objectReference: {fileID: 1542195898}
+      objectReference: {fileID: 969867892}
     - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_SpecificTargetActions.Array.data[1]
       value: 
-      objectReference: {fileID: 1925418270}
+      objectReference: {fileID: 0}
     - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_SpecificTargetActions.Array.data[2]
       value: 
-      objectReference: {fileID: 274862584}
+      objectReference: {fileID: 969867892}
     - target: {fileID: 3401233928053857434, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8109,7 +8006,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542195897}
-  - component: {fileID: 1542195898}
   - component: {fileID: 1542195899}
   m_Layer: 0
   m_Name: Enemy Spawner
@@ -8132,28 +8028,6 @@ Transform:
   m_Father: {fileID: 1999795999}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1542195898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542195896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e899a6b5a898b4d9f666c014f378fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Scope: 1
-  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Default.png
-  m_FlashColour: {r: 0.6901961, g: 1.3411765, b: 0.50980395, a: 2}
-  m_Brick: {fileID: 0}
-  m_BrickPivotOffset: {x: 0, y: 0, z: 0}
-  m_Audio: {fileID: 0}
-  m_AudioVolume: 1
-  m_Pause: 1
-  m_Repeat: 1
-  _actionObject: {fileID: 1542195896}
 --- !u!114 &1542195899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8624,7 +8498,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 70
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -8649,8 +8523,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.19479905, y: 0.000000018868791, z: -0.0000000037474113, w: 0.9808432}
-  m_LocalPosition: {x: 2.94, y: 13, z: -12.61}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.8244984, y: 1.1254015, z: 3.3612123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 827936767}
@@ -9245,7 +9119,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1925418272}
-  - component: {fileID: 1925418270}
   - component: {fileID: 1925418271}
   m_Layer: 0
   m_Name: Camera Director
@@ -9254,28 +9127,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1925418270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925418269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e899a6b5a898b4d9f666c014f378fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Scope: 1
-  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Default.png
-  m_FlashColour: {r: 0.6901961, g: 1.3411765, b: 0.50980395, a: 2}
-  m_Brick: {fileID: 0}
-  m_BrickPivotOffset: {x: 0, y: 0, z: 0}
-  m_Audio: {fileID: 0}
-  m_AudioVolume: 1
-  m_Pause: 1
-  m_Repeat: 1
-  _actionObject: {fileID: 1925418269}
 --- !u!114 &1925418271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11058,7 +10909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099296008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8392086, y: 1.1670256, z: 3.3703818}
+  m_LocalPosition: {x: 2.8244984, y: 1.1254015, z: 3.3612123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1202401237}
@@ -19489,7 +19340,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8688045825249898455}
-  m_LocalRotation: {x: 0.19479905, y: 0.000000018868791, z: -0.0000000037474113, w: 0.9808432}
+  m_LocalRotation: {x: 0.19479905, y: -0.000000018868795, z: 0.000000003747412, w: 0.9808432}
   m_LocalPosition: {x: 2.94, y: 13, z: -12.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

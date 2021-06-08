@@ -12,7 +12,6 @@ namespace Lego.SummerJam.NoFrogsAllowed
         ShootMode
     }
 
-    [RequireComponent(typeof(CustomAction))]
     public class GameLoopController : MonoBehaviour, IAction
     {
         public static Action<GameState> OnChangeGameState;
