@@ -18,7 +18,6 @@ namespace Lego.SummerJam.NoFrogsAllowed
         public static Action<GameState> OnChangeGameState;
 
         [SerializeField] private MinifigController _minifigController;
-        [SerializeField] private Transform _tpsCamTransform;
 
         public static Action OnReleaseFrogs;
         private GameState _currentGameState;
