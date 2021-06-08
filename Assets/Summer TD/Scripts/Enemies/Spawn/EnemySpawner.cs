@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
-    [RequireComponent(typeof(CustomAction))]
     public class EnemySpawner : MonoBehaviour, IAction
     {
         [SerializeField] private Vector2 _spawnArea;
@@ -12,12 +11,35 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private LevelSpawnData _levelSpawnData;
 
+        #region Unity Messages
+        private void OnEnable()
+        {
+            GameLoopController.OnChangeGameState += OnChangeGameState;
+        }
+
+        private void OnDisable()
+        {
+            GameLoopController.OnChangeGameState -= OnChangeGameState;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Vector3 spawnArea = new Vector3(_spawnArea.x, 4, _spawnArea.y);
+            Vector3 spawnCenter = transform.position;
+            spawnCenter.y = spawnArea.y;
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(spawnCenter, spawnArea);
+        }
+        #endregion
+
         public void Activate()
         {
             _levelSpawnData = Resources.Load<LevelSpawnData>("LevelSpawnData/Level_0");
             StartCoroutine(StartLevel(_levelSpawnData.SpawnList));
         }
 
+        #region Routines
         private IEnumerator StartLevel(List<WaveSpawnData> waveSpawnList)
         {
             foreach (WaveSpawnData waveData in waveSpawnList)
@@ -43,15 +65,28 @@ namespace Lego.SummerJam.NoFrogsAllowed
             frog.SetTarget(_target);
             yield return new WaitForSeconds(waitTime);
         }
+        #endregion
 
-        private void OnDrawGizmosSelected()
+        #region Game State Handlers
+
+        #endregion
+
+        #region System.Action Handlers
+        private void OnChangeGameState(GameState currentGameState)
         {
-            Vector3 spawnArea = new Vector3(_spawnArea.x, 4, _spawnArea.y);
-            Vector3 spawnCenter = transform.position;
-            spawnCenter.y = spawnArea.y;
+            switch (currentGameState)
+            {
+                case GameState.LevelIntro:
+                    break;
 
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(spawnCenter, spawnArea);
+                case GameState.ShootMode:
+                    Activate();
+                    break;
+
+                default:
+                    break;
+            }
         }
+        #endregion
     }
 }
