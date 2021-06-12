@@ -9,6 +9,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
     {
         public static Action OnGameStart;
 
+        //[SerializeField] private 
+
         public void Activate()
         {
             OnGameStart?.Invoke();

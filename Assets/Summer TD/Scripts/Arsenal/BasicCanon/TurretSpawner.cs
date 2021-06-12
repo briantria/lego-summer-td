@@ -27,12 +27,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void OnEnable()
         {
-            GameLoopController.OnReleaseFrogs += OnReleaseFrogs;
+            GameLoopController.OnChangeGameState += OnChangeGameState;
         }
 
         private void OnDisable()
         {
-            GameLoopController.OnReleaseFrogs -= OnReleaseFrogs;
+            GameLoopController.OnChangeGameState -= OnChangeGameState;
         }
 
         private void Start()
@@ -63,10 +63,25 @@ namespace Lego.SummerJam.NoFrogsAllowed
             }
         }
 
-        private void OnReleaseFrogs()
+        #region System.Action Handlers
+        private void OnChangeGameState(GameState currentGameState)
         {
-            _gameStartTrigger.SetActive(false);
+            switch (currentGameState)
+            {
+                case GameState.ShootMode:
+                    _gameStartTrigger.SetActive(false);
+                    break;
+
+                default:
+                    break;
+            }
         }
+        #endregion
+
+        //private void OnReleaseFrogs()
+        //{
+        //    _gameStartTrigger.SetActive(false);
+        //}
 
         public void Activate()
         {

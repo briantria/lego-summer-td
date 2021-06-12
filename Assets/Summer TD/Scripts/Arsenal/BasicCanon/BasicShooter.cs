@@ -10,13 +10,28 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void OnEnable()
         {
-            GameLoopController.OnReleaseFrogs += OnReleaseFrogs;
+            GameLoopController.OnChangeGameState += OnChangeGameState;
         }
 
         private void OnDisable()
         {
-            GameLoopController.OnReleaseFrogs -= OnReleaseFrogs;
+            GameLoopController.OnChangeGameState -= OnChangeGameState;
         }
+
+        #region System.Action Handlers
+        private void OnChangeGameState(GameState currentGameState)
+        {
+            switch (currentGameState)
+            {
+                case GameState.ShootMode:
+                    _activateGuideObj.SetActive(false);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        #endregion
 
         private void OnReleaseFrogs()
         {
