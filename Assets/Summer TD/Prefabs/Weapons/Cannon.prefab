@@ -2669,6 +2669,36 @@ MonoBehaviour:
   - {fileID: 9040380183156445011}
   tubes:
   - {fileID: 5038359407215725773}
+--- !u!1 &5280135196644187171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8616119901520096000}
+  m_Layer: 0
+  m_Name: TPS Cam Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8616119901520096000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280135196644187171}
+  m_LocalRotation: {x: -0.040092327, y: 0.6091567, z: -0.030858539, w: -0.7914344}
+  m_LocalPosition: {x: 6, y: 4.77, z: -6.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8738192018270445270}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 5.8, y: 284.83, z: 0}
 --- !u!1 &5400527732489613570
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,6 +3363,7 @@ MonoBehaviour:
   _verticalPivot: {fileID: 8738192018270445270}
   _horizontalPivot: {fileID: 3766003668080671993}
   _playerSeat: {fileID: 9187870583723835751}
+  _tpsCamAnchor: {fileID: 8616119901520096000}
   _horizontalSpeed: 2
   _verticalSpeed: -2
 --- !u!1 &6418438344097684710
@@ -4431,6 +4462,7 @@ Transform:
   - {fileID: 9187870583723835751}
   - {fileID: 4743585665725329660}
   - {fileID: 6194133043570653463}
+  - {fileID: 8616119901520096000}
   m_Father: {fileID: 3766003668080671993}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

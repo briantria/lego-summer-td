@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Cinemachine;
 using Unity.LEGO.Game;
 
 namespace Lego.SummerJam.NoFrogsAllowed
@@ -10,6 +11,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private Transform _verticalPivot;
         [SerializeField] private Transform _horizontalPivot;
         [SerializeField] private Transform _playerSeat;
+        [SerializeField] private Transform _tpsCamAnchor;
 
         [Space(8)]
         [SerializeField] private float _horizontalSpeed = 2.0f;
@@ -36,14 +38,15 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             if (_playerTransform == null)
             {
+                Debug.Log("Missing player transform");
                 return;
             }
 
-            Vector3 playerSeat = _playerSeat.position;
-            playerSeat.y += 0.3f;
+            //Vector3 playerSeat = _playerSeat.position;
+            //playerSeat.y += 0.3f;
 
-            _playerTransform.position = playerSeat;
-            _playerTransform.forward = _playerSeat.right;
+            //_playerTransform.position = playerSeat;
+            //_playerTransform.forward = _playerSeat.right;
             _aimRoutine = StartCoroutine(AimRoutine());
         }
 
@@ -62,6 +65,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
         public void SetPlayer(Transform playerTransform)
         {
             _playerTransform = playerTransform;
+        }
+
+        public void SetTpsCam(CinemachineVirtualCamera tpsCam)
+        {
+            Debug.Log("Set TPS cam.");
+            tpsCam.Follow = _tpsCamAnchor;
+            tpsCam.LookAt = _tpsCamAnchor;
         }
 
         #region System.Action Handlers
@@ -95,6 +105,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
                 float v = _verticalSpeed * Input.GetAxis("Mouse Y");
                 _verticalPivot.Rotate(0, 0, v);
+
+                Vector3 playerSeat = _playerSeat.position;
+                playerSeat.y += 0.3f;
+                _playerTransform.position = playerSeat;
+                _playerTransform.forward = _playerSeat.right;
 
                 yield return new WaitForEndOfFrame();
             }

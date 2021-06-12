@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using Unity.LEGO.Game;
 
 namespace Lego.SummerJam.NoFrogsAllowed
@@ -64,6 +65,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
         public void SetPlayer(Transform playerT)
         {
             _turretController.SetPlayer(playerT);
+        }
+
+        public void SetTpsCam(CinemachineVirtualCamera tpsCam)
+        {
+            _turretController.SetTpsCam(tpsCam);
         }
 
         #region System.Action Handlers

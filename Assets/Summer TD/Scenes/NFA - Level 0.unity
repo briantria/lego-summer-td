@@ -4800,7 +4800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b628440a425f4af4fb48a5fbd4a89722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 5769543135783787036}
   _basicTurret: {fileID: 6034029946018191247, guid: 0482becf85f00c346b4593c3f72158f0,
     type: 3}
   _turretSeller: {fileID: 351177250}
@@ -5022,6 +5021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49853fe61c68a644823d1a83e8fbd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turretSpawner: {fileID: 949655934}
 --- !u!114 &969867892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6471,10 +6471,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 1, y: 0.2, z: 0}
-  VerticalArmLength: 5
+  ShoulderOffset: {x: 0, y: 0, z: 0}
+  VerticalArmLength: 0
   CameraSide: 0
-  CameraDistance: 7
+  CameraDistance: 0
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 2048
@@ -6492,7 +6492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c41ac9245b87c4192012080077d830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damping: 0
+  m_Damping: 0.2
 --- !u!114 &1202401240
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -8419,7 +8419,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 45
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -8445,7 +8445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.31, y: 6.2, z: 2.2399998}
+  m_LocalPosition: {x: 13.31, y: 1, z: 9.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 827936767}
@@ -11040,15 +11040,15 @@ MonoBehaviour:
   m_LookAt: {fileID: 5769543135783787036}
   m_Follow: {fileID: 5769543135783787036}
   m_Lens:
-    FieldOfView: 45
+    FieldOfView: 70
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
-    m_BlendHint: 0
-    m_InheritPosition: 0
+    m_BlendHint: 2
+    m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -11062,7 +11062,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099296008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.31, y: 6.2, z: 2.2399998}
+  m_LocalPosition: {x: 13.31, y: 1, z: 9.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1202401237}

@@ -14,22 +14,26 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private GameObject _levelIntroCamObj;
 
         private CinemachineVirtualCamera _levelIntroCam;
+        private CinemachineVirtualCamera _tpsCam;
         private CinemachineTrackedDolly _levelIntroDollyPath;
 
         #region Unity Messages
         private void OnEnable()
         {
             GameLoopController.OnChangeGameState += OnChangeGameState;
+            GameStartAction.OnSelectCannon += OnSelectTurret;
         }
 
         private void OnDisable()
         {
             GameLoopController.OnChangeGameState -= OnChangeGameState;
+            GameStartAction.OnSelectCannon -= OnSelectTurret;
         }
 
         private void Start()
         {
             _levelIntroCam = _levelIntroCamObj.GetComponent<CinemachineVirtualCamera>();
+            _tpsCam = _tpsCamObj.GetComponent<CinemachineVirtualCamera>();
             _levelIntroDollyPath = _levelIntroCam.GetCinemachineComponent<CinemachineTrackedDolly>();
             ActivateSetupCam();
         }
@@ -89,6 +93,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 default:
                     break;
             }
+        }
+
+        private void OnSelectTurret(TurretSpawner turretSpawner)
+        {
+            turretSpawner.SetTpsCam(_tpsCam);
         }
         #endregion
     }
