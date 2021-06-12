@@ -5,11 +5,11 @@ using Unity.LEGO.Game;
 namespace Lego.SummerJam.NoFrogsAllowed
 {
     [RequireComponent(typeof(CustomAction))]
-    public class SpikeTrapSpawner : MonoBehaviour, IAction
+    public class TarSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields
-        [SerializeField] private GameObject _spikeSellerObj;
-        [SerializeField] private GameObject _spikeTrapPrefab;
+        [SerializeField] private GameObject _sellerObj;
+        [SerializeField] private GameObject _tarPrefab;
 
         [Space(8)]
         [SerializeField] private int _price;
@@ -20,27 +20,27 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private Variable _coins;
         #endregion
 
-        private GameObject _spikeTrapObj;
+        private GameObject _tarObj;
 
         private void Start()
         {
-            ShowSpikeSeller();
+            ShowSeller();
         }
 
-        private void ShowSpikeSeller()
+        private void ShowSeller()
         {
-            _spikeSellerObj.SetActive(true);
-            if (_spikeTrapObj != null)
+            _sellerObj.SetActive(true);
+            if (_tarObj != null)
             {
-                Destroy(_spikeTrapObj);
+                Destroy(_tarObj);
             }
         }
 
-        private void ShowSpikeTrap()
+        private void ShowTar()
         {
-            _spikeSellerObj.SetActive(false);
-            _spikeTrapObj = Instantiate(_spikeTrapPrefab, transform);
-            _spikeTrapObj.SetActive(true);
+            _sellerObj.SetActive(false);
+            _tarObj = Instantiate(_tarPrefab, transform);
+            _tarObj.SetActive(true);
         }
 
         public void Activate()
@@ -52,7 +52,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             }
 
             VariableManager.SetValue(_coins, currentCoins - _price);
-            ShowSpikeTrap();
+            ShowTar();
         }
     }
 }

@@ -23,11 +23,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private Transform _target;
         private Rigidbody _rb;
+        private float _slowRate;
 
         private void Start()
         {
             _rb = GetComponent<Rigidbody>();
             _rb.velocity = Vector3.zero;
+            _slowRate = 0.0f;
         }
 
         private void FixedUpdate()
@@ -41,7 +43,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             jumpVector.y = 0;
             jumpVector.y = jumpVector.magnitude * 5;
             jumpVector.Normalize();
-            jumpVector *= _jumpStrength;
+            jumpVector *= _jumpStrength * (1.0f - _slowRate);
 
             _rb.velocity = Vector3.zero;
             _rb.AddForce(jumpVector, ForceMode.Impulse);
@@ -74,6 +76,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
                 Destroy(gameObject);
             }
+        }
+
+        public void Slow(float slowRate)
+        {
+            _slowRate = slowRate;
         }
 
         public void SetTarget(Transform target)

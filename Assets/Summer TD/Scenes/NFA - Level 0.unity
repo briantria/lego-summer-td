@@ -749,6 +749,39 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &198574616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198574617}
+  m_Layer: 15
+  m_Name: Trap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &198574617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198574616}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 887635754}
+  - {fileID: 652405771}
+  - {fileID: 1353365931}
+  m_Father: {fileID: 1951148139}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &214231712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2632,7 +2665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 520439055}
   - component: {fileID: 520439056}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base
   m_TagString: Base
   m_Icon: {fileID: 0}
@@ -2940,7 +2973,7 @@ GameObject:
   - component: {fileID: 626623342}
   - component: {fileID: 626623341}
   - component: {fileID: 626623340}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Input Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3040,8 +3073,8 @@ GameObject:
   - component: {fileID: 652405771}
   - component: {fileID: 652405772}
   - component: {fileID: 652405773}
-  m_Layer: 0
-  m_Name: Spike Trap
+  m_Layer: 15
+  m_Name: Spike Trap Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3054,12 +3087,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652405770}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 15}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 887635754}
-  m_Father: {fileID: 1951148139}
+  m_Children: []
+  m_Father: {fileID: 198574617}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &652405772
@@ -4074,7 +4106,7 @@ GameObject:
   - component: {fileID: 887635757}
   - component: {fileID: 887635756}
   - component: {fileID: 887635755}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Seller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4088,12 +4120,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887635753}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 626623339}
-  m_Father: {fileID: 652405771}
+  m_Father: {fileID: 198574617}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &887635755
@@ -5738,7 +5770,7 @@ GameObject:
   - component: {fileID: 1177747009}
   - component: {fileID: 1177747012}
   - component: {fileID: 1177747011}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6345,6 +6377,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319032053}
   m_Mesh: {fileID: 717838131}
+--- !u!1 &1353365930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353365931}
+  - component: {fileID: 1353365932}
+  - component: {fileID: 1353365933}
+  m_Layer: 15
+  m_Name: Tar Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1353365931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353365930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 198574617}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353365932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353365930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e899a6b5a898b4d9f666c014f378fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Scope: 1
+  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Default.png
+  m_FlashColour: {r: 0.6901961, g: 1.3411765, b: 0.50980395, a: 2}
+  m_Brick: {fileID: 0}
+  m_BrickPivotOffset: {x: 0, y: 0, z: 0}
+  m_Audio: {fileID: 0}
+  m_AudioVolume: 1
+  m_Pause: 1
+  m_Repeat: 1
+  _actionObject: {fileID: 1353365930}
+--- !u!114 &1353365933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353365930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b586a07487ebda4683f3b6db6b1bfc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sellerObj: {fileID: 887635753}
+  _tarPrefab: {fileID: 1263541049628264522, guid: 37f36855763e54541b487b5c01d68f73,
+    type: 3}
+  _price: 100
+  _coins: {fileID: 11400000, guid: 74aa89e56d40b27478f9e25850a8a552, type: 2}
 --- !u!1 &1362754418
 GameObject:
   m_ObjectHideFlags: 0
@@ -7036,10 +7139,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 626623339}
     m_Modifications:
+    - target: {fileID: 88119414243618501, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 240115434994495612, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 687400692330738185, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025898925100416919, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1772408607053875195, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_Name
       value: Input Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772408607053875195, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2368889611900381772, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2904226713564917115, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
@@ -7071,6 +7204,31 @@ PrefabInstance:
       propertyPath: m_SpecificTargetActions.Array.data[0]
       value: 
       objectReference: {fileID: 652405772}
+    - target: {fileID: 3947253284474131501, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961419003758224927, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097941103177584227, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628170745600763395, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707938917893875485, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5180709464083907483, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -7125,6 +7283,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463040794788997962, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906797310990658650, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360622820525407504, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832682006348908358, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984796582155067641, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185827043645143178, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655238104925858558, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697113349788895880, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893248883507155806, guid: 0e1bf072a3aa3894b938ebe6a19490c5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e1bf072a3aa3894b938ebe6a19490c5, type: 3}
@@ -7202,8 +7405,41 @@ MonoBehaviour:
   m_Repeat: 0
   m_SpeechBubbleInfos:
   - Type: 0
-    Text: Press (E) to place a Spike Trap.
+    Text: Press (E) to buy a Spike Trap. (R) to buy Tar.
   m_SpeechBubblePromptPrefab: {fileID: 2153783478792524732, guid: 8f2336181d72ea740bdf64bb1cd14b33,
+    type: 3}
+--- !u!114 &1494437350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494437347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d8ca064934e844932583ec77ff51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Scope: 1
+  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Input Trigger.png
+  m_FlashColour: {r: 1.6, g: 1.4509804, b: 1.1058824, a: 2}
+  m_Brick: {fileID: 1494437346}
+  m_BrickPivotOffset: {x: -0.39999992, y: 0.569, z: -0.39999962}
+  Progress: 0
+  Goal: 0
+  m_Conditions: []
+  m_Target: 1
+  m_SpecificTargetActions:
+  - {fileID: 1353365932}
+  m_Repeat: 0
+  m_Sense: 0
+  m_SenseTag: 
+  m_Type: 8
+  m_OtherKey: 114
+  m_Enable: 1
+  m_Distance: 5
+  m_ShowPrompt: 0
+  m_InputPromptPrefab: {fileID: 2153783478792524732, guid: 35eacb06a69ff44438ed7eb355e722c3,
     type: 3}
 --- !u!1 &1525889850
 GameObject:
@@ -8912,7 +9148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 949655932}
-  - {fileID: 652405771}
+  - {fileID: 198574617}
   m_Father: {fileID: 1999795999}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
