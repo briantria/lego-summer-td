@@ -76,9 +76,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             switch (currentGameState)
             {
-                case GameState.LevelIntro:
-                    break;
-
+                //case GameState.LevelIntro:
                 case GameState.ShootMode:
                     Activate();
                     break;

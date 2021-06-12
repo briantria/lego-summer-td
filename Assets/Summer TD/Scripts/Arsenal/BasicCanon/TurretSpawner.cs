@@ -9,7 +9,6 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class TurretSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields
-        [SerializeField] private Transform _player;
         [SerializeField] private GameObject _basicTurret;
         [SerializeField] private GameObject _turretSeller;
         [SerializeField] private GameObject _gameStartTrigger;
@@ -27,12 +26,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void OnEnable()
         {
-            GameLoopController.OnReleaseFrogs += OnReleaseFrogs;
+            GameLoopController.OnChangeGameState += OnChangeGameState;
         }
 
         private void OnDisable()
         {
-            GameLoopController.OnReleaseFrogs -= OnReleaseFrogs;
+            GameLoopController.OnChangeGameState -= OnChangeGameState;
         }
 
         private void Start()
@@ -49,7 +48,6 @@ namespace Lego.SummerJam.NoFrogsAllowed
             basicTurretObj.SetActive(true);
 
             _turretController = basicTurretObj.GetComponent<TurretController>();
-            _turretController.SetPlayer(_player);
         }
 
         private void ShowTurretSeller()
@@ -63,10 +61,30 @@ namespace Lego.SummerJam.NoFrogsAllowed
             }
         }
 
-        private void OnReleaseFrogs()
+        public void SetPlayer(Transform playerT)
         {
-            _gameStartTrigger.SetActive(false);
+            _turretController.SetPlayer(playerT);
         }
+
+        #region System.Action Handlers
+        private void OnChangeGameState(GameState currentGameState)
+        {
+            switch (currentGameState)
+            {
+                case GameState.ShootMode:
+                    _gameStartTrigger.SetActive(false);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        #endregion
+
+        //private void OnReleaseFrogs()
+        //{
+        //    _gameStartTrigger.SetActive(false);
+        //}
 
         public void Activate()
         {

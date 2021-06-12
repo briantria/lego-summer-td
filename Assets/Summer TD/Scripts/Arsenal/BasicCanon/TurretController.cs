@@ -18,16 +18,17 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private Coroutine _aimRoutine;
         private Transform _playerTransform;
+        private bool _selected;
 
         private void OnEnable()
         {
-            GameLoopController.OnReleaseFrogs += OnReleaseFrogs;
+            GameLoopController.OnChangeGameState += OnChangeGameState;
             EventManager.AddListener<OptionsMenuEvent>(OnGamePause);
         }
 
         private void OnDisable()
         {
-            GameLoopController.OnReleaseFrogs -= OnReleaseFrogs;
+            GameLoopController.OnChangeGameState -= OnChangeGameState;
             EventManager.RemoveListener<OptionsMenuEvent>(OnGamePause);
         }
 
@@ -62,6 +63,22 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             _playerTransform = playerTransform;
         }
+
+        #region System.Action Handlers
+        private void OnChangeGameState(GameState currentGameState)
+        {
+            switch (currentGameState)
+            {
+                case GameState.ShootMode:
+                    OnReleaseFrogs();
+                    //_gameStartTrigger.SetActive(false);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        #endregion
 
         private IEnumerator AimRoutine()
         {
