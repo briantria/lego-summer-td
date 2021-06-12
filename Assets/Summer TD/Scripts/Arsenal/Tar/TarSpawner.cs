@@ -5,12 +5,12 @@ using Unity.LEGO.Game;
 namespace Lego.SummerJam.NoFrogsAllowed
 {
     [RequireComponent(typeof(CustomAction))]
-    public class SpikeTrapSpawner : MonoBehaviour, IAction
+    public class TarSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields
         [SerializeField] private GameObject _buyerObj;
         [SerializeField] private GameObject _sellerObj;
-        [SerializeField] private GameObject _spikeTrapPrefab;
+        [SerializeField] private GameObject _tarPrefab;
 
         [Space(8)]
         [SerializeField] private int _price;
@@ -21,7 +21,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private Variable _coins;
         #endregion
 
-        private GameObject _spikeTrapObj;
+        private GameObject _tarObj;
 
         #region Unity Messages
         private void OnEnable()
@@ -36,26 +36,26 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void Start()
         {
-            ShowSpikeSeller();
+            ShowSeller();
         }
         #endregion
 
-        private void ShowSpikeSeller()
+        private void ShowSeller()
         {
             _sellerObj.SetActive(true);
             _buyerObj.SetActive(false);
-            if (_spikeTrapObj != null)
+            if (_tarObj != null)
             {
-                Destroy(_spikeTrapObj);
+                Destroy(_tarObj);
             }
         }
 
-        private void ShowSpikeTrap()
+        private void ShowTar()
         {
             _sellerObj.SetActive(false);
             _buyerObj.SetActive(true);
-            _spikeTrapObj = Instantiate(_spikeTrapPrefab, transform);
-            _spikeTrapObj.SetActive(true);
+            _tarObj = Instantiate(_tarPrefab, transform);
+            _tarObj.SetActive(true);
         }
 
         private void BuyTrap()
@@ -67,19 +67,19 @@ namespace Lego.SummerJam.NoFrogsAllowed
             }
 
             VariableManager.SetValue(_coins, currentCoins - _price);
-            ShowSpikeTrap();
+            ShowTar();
         }
 
         private void SellTrap()
         {
             int currentCoins = VariableManager.GetValue(_coins);
             VariableManager.SetValue(_coins, currentCoins + _price);
-            ShowSpikeSeller();
+            ShowSeller();
         }
 
         public void Activate()
         {
-            if (_spikeTrapObj != null)
+            if (_tarObj != null)
             {
                 SellTrap();
             }
