@@ -8,7 +8,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class SpikeTrapSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields
-        [SerializeField] private GameObject _spikeSellerObj;
+        [SerializeField] private GameObject _buyerObj;
+        [SerializeField] private GameObject _sellerObj;
         [SerializeField] private GameObject _spikeTrapPrefab;
 
         [Space(8)]
@@ -22,14 +23,27 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private GameObject _spikeTrapObj;
 
+        #region Unity Messages
+        private void OnEnable()
+        {
+            GameLoopController.OnChangeGameState += OnGameStateChange;
+        }
+
+        private void OnDisable()
+        {
+            GameLoopController.OnChangeGameState -= OnGameStateChange;
+        }
+
         private void Start()
         {
             ShowSpikeSeller();
         }
+        #endregion
 
         private void ShowSpikeSeller()
         {
-            _spikeSellerObj.SetActive(true);
+            _sellerObj.SetActive(true);
+            _buyerObj.SetActive(false);
             if (_spikeTrapObj != null)
             {
                 Destroy(_spikeTrapObj);
@@ -38,12 +52,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void ShowSpikeTrap()
         {
-            _spikeSellerObj.SetActive(false);
+            _sellerObj.SetActive(false);
+            _buyerObj.SetActive(true);
             _spikeTrapObj = Instantiate(_spikeTrapPrefab, transform);
             _spikeTrapObj.SetActive(true);
         }
 
-        public void Activate()
+        private void BuyTrap()
         {
             int currentCoins = VariableManager.GetValue(_coins);
             if (currentCoins - _price < 0)
@@ -53,6 +68,46 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             VariableManager.SetValue(_coins, currentCoins - _price);
             ShowSpikeTrap();
+        }
+
+        private void SellTrap()
+        {
+            int currentCoins = VariableManager.GetValue(_coins);
+            VariableManager.SetValue(_coins, currentCoins + _price);
+            ShowSpikeSeller();
+        }
+
+        public void Activate()
+        {
+            if (_spikeTrapObj != null)
+            {
+                SellTrap();
+            }
+            else
+            {
+                BuyTrap();
+            }
+        }
+
+        private void OnGameStateChange(GameState currentGameState)
+        {
+            switch (currentGameState)
+            {
+                //case GameState.BuildMode:
+                //    {
+                //        _buyerObj.SetActive(_spikeTrapObj != null);
+                //        break;
+                //    }
+
+                case GameState.ShootMode:
+                    {
+                        _buyerObj.SetActive(false);
+                        break;
+                    }
+
+                default:
+                    break;
+            }
         }
     }
 }
