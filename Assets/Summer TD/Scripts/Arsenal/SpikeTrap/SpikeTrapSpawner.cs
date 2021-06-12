@@ -9,7 +9,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
     {
         #region Serialized Fields
         [SerializeField] private GameObject _spikeSellerObj;
-        [SerializeField] private GameObject _spikeTrapObj;
+        [SerializeField] private GameObject _spikeTrapPrefab;
 
         [Space(8)]
         [SerializeField] private int _price;
@@ -18,6 +18,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
         // Note: The following 'Variable(s)' was created using LEGO Microgame Editors
         // It's a ScriptableObject located at Assets/LEGO/Scriptable Objects
         [SerializeField] private Variable _coins;
+
+        private GameObject _spikeTrapObj;
 
         #endregion
 
@@ -29,12 +31,16 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void ShowSpikeSeller()
         {
             _spikeSellerObj.SetActive(true);
-            _spikeTrapObj.SetActive(false);
+            if (_spikeTrapObj != null)
+            {
+                Destroy(_spikeTrapObj);
+            }
         }
 
         private void ShowSpikeTrap()
         {
             _spikeSellerObj.SetActive(false);
+            _spikeTrapObj = Instantiate(_spikeTrapPrefab, transform);
             _spikeTrapObj.SetActive(true);
         }
 
