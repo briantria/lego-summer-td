@@ -8,6 +8,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class TarSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields
+        [SerializeField] private GameObject _buyerObj;
         [SerializeField] private GameObject _sellerObj;
         [SerializeField] private GameObject _tarPrefab;
 
@@ -22,14 +23,27 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private GameObject _tarObj;
 
+        #region Unity Messages
+        private void OnEnable()
+        {
+            GameLoopController.OnChangeGameState += OnGameStateChange;
+        }
+
+        private void OnDisable()
+        {
+            GameLoopController.OnChangeGameState -= OnGameStateChange;
+        }
+
         private void Start()
         {
             ShowSeller();
         }
+        #endregion
 
         private void ShowSeller()
         {
             _sellerObj.SetActive(true);
+            _buyerObj.SetActive(false);
             if (_tarObj != null)
             {
                 Destroy(_tarObj);
@@ -39,11 +53,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void ShowTar()
         {
             _sellerObj.SetActive(false);
+            _buyerObj.SetActive(true);
             _tarObj = Instantiate(_tarPrefab, transform);
             _tarObj.SetActive(true);
         }
 
-        public void Activate()
+        private void BuyTrap()
         {
             int currentCoins = VariableManager.GetValue(_coins);
             if (currentCoins - _price < 0)
@@ -53,6 +68,46 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             VariableManager.SetValue(_coins, currentCoins - _price);
             ShowTar();
+        }
+
+        private void SellTrap()
+        {
+            int currentCoins = VariableManager.GetValue(_coins);
+            VariableManager.SetValue(_coins, currentCoins + _price);
+            ShowSeller();
+        }
+
+        public void Activate()
+        {
+            if (_tarObj != null)
+            {
+                SellTrap();
+            }
+            else
+            {
+                BuyTrap();
+            }
+        }
+
+        private void OnGameStateChange(GameState currentGameState)
+        {
+            switch (currentGameState)
+            {
+                //case GameState.BuildMode:
+                //    {
+                //        _buyerObj.SetActive(_spikeTrapObj != null);
+                //        break;
+                //    }
+
+                case GameState.ShootMode:
+                    {
+                        _buyerObj.SetActive(false);
+                        break;
+                    }
+
+                default:
+                    break;
+            }
         }
     }
 }
