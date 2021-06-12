@@ -15,6 +15,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class GameLoopController : MonoBehaviour
     {
         public static Action<GameState> OnChangeGameState;
+        public static Action<Transform> OnSetPlayerTransform;
         //public static Action OnReleaseFrogs;
 
         [SerializeField] private MinifigController _minifigController;
@@ -25,6 +26,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             EventManager.AddListener<OptionsMenuEvent>(OnGamePause);
             GameStartAction.OnGameStart += NextState;
+            GameStartAction.OnSelectCannon += OnSelectTurret;
             CameraDirector.OnLevelIntroDone += NextState;
         }
 
@@ -32,6 +34,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             EventManager.RemoveListener<OptionsMenuEvent>(OnGamePause);
             GameStartAction.OnGameStart -= NextState;
+            GameStartAction.OnSelectCannon -= OnSelectTurret;
             CameraDirector.OnLevelIntroDone -= NextState;
         }
 
@@ -56,6 +59,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
                         ChangeToShootMode();
                         break;
                     }
+                case GameState.ShootMode:
+                    {
+                        OnSetPlayerTransform?.Invoke(_minifigController.transform);
+                        break;
+                    }
                 default:
                     break;
             }
@@ -75,6 +83,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
             {
                 Cursor.lockState = CursorLockMode.Locked;
             }
+        }
+
+        private void OnSelectTurret(TurretSpawner turretSpawner)
+        {
+            Debug.Log("on select turret");
+            turretSpawner.SetPlayer(_minifigController.transform);
         }
         #endregion
 

@@ -18,6 +18,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private Coroutine _aimRoutine;
         private Transform _playerTransform;
+        private bool _selected;
 
         private void OnEnable()
         {

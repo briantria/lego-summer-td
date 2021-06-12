@@ -8,11 +8,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class GameStartAction : MonoBehaviour, IAction
     {
         public static Action OnGameStart;
+        public static Action<TurretSpawner> OnSelectCannon; 
 
-        //[SerializeField] private 
+        [SerializeField] private TurretSpawner _turretSpawner;
 
         public void Activate()
         {
+            OnSelectCannon?.Invoke(_turretSpawner);
             OnGameStart?.Invoke();
         }
     }

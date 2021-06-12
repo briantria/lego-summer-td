@@ -9,7 +9,6 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class TurretSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields
-        [SerializeField] private Transform _player;
         [SerializeField] private GameObject _basicTurret;
         [SerializeField] private GameObject _turretSeller;
         [SerializeField] private GameObject _gameStartTrigger;
@@ -49,7 +48,6 @@ namespace Lego.SummerJam.NoFrogsAllowed
             basicTurretObj.SetActive(true);
 
             _turretController = basicTurretObj.GetComponent<TurretController>();
-            _turretController.SetPlayer(_player);
         }
 
         private void ShowTurretSeller()
@@ -61,6 +59,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
             {
                 Destroy(_turretController.gameObject);
             }
+        }
+
+        public void SetPlayer(Transform playerT)
+        {
+            _turretController.SetPlayer(playerT);
         }
 
         #region System.Action Handlers
