@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.LEGO.Game;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
@@ -8,6 +9,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
     {
         [SerializeField] private Vector2 _spawnArea;
         [SerializeField] private Transform _target;
+
+        [Space(10)]
+        // Note: The following 'Variable(s)' was created using LEGO Microgame Editors
+        // It's a ScriptableObject located at Assets/LEGO/Scriptable Objects
+        [SerializeField] private Variable _enemyToSpawn;
 
         private LevelSpawnData _levelSpawnData;
 
@@ -36,6 +42,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
         public void Activate()
         {
             _levelSpawnData = Resources.Load<LevelSpawnData>("LevelSpawnData/Level_0");
+
+            int totalEnemyToSpawn = 0;
+            foreach (WaveSpawnData waveData in _levelSpawnData.SpawnList)
+            {
+                totalEnemyToSpawn += waveData.MaxSpawnCount;
+            }
+
+            VariableManager.SetValue(_enemyToSpawn, totalEnemyToSpawn);
             StartCoroutine(StartLevel(_levelSpawnData.SpawnList));
         }
 
@@ -54,6 +68,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private IEnumerator SpawnEnemy(float waitTime, GameObject enemyPrefab)
         {
+            int enemyToSpawn = VariableManager.GetValue(_enemyToSpawn); ;
+            VariableManager.SetValue(_enemyToSpawn, enemyToSpawn - 1);
+
             GameObject enemyObj = Instantiate(enemyPrefab, transform);
             Vector2 pos = _spawnArea * 0.5f;
             pos.x = Random.Range(-pos.x, pos.x);

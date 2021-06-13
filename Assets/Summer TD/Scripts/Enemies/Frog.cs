@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.LEGO.Game;
-using Unity.LEGO.Behaviours.Triggers;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
