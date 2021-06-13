@@ -8859,6 +8859,7 @@ MonoBehaviour:
   _spawnArea: {x: 15, y: 3}
   _target: {fileID: 520439055}
   _enemyToSpawn: {fileID: 11400000, guid: ee078af3e53367d4d91fdbbb22ad7cd7, type: 2}
+  _enemyOnField: {fileID: 11400000, guid: d9160fe406f20d249b755b15b3ed137b, type: 2}
 --- !u!1001 &1550531455
 PrefabInstance:
   m_ObjectHideFlags: 0

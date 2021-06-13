@@ -18,6 +18,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         // It's a ScriptableObject located at Assets/LEGO/Scriptable Objects
         [SerializeField] private Variable _baseHealth;
         [SerializeField] private Variable _coins;
+        [SerializeField] private Variable _enemyOnField;
         #endregion
 
         private Transform _target;
@@ -53,11 +54,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             if (other.CompareTag("Base"))
             {
-                //Debug.Log("Base Attacked!");
-                // TODO: base damage 
-
                 int baseHealth = VariableManager.GetValue(_baseHealth);
                 VariableManager.SetValue(_baseHealth, baseHealth - _damage);
+
+                int enemyOnField = VariableManager.GetValue(_enemyOnField);
+                VariableManager.SetValue(_enemyOnField, enemyOnField - 1);
+
                 Destroy(gameObject);
             }
         }
@@ -72,6 +74,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
                 int coinCount = VariableManager.GetValue(_coins);
                 VariableManager.SetValue(_coins, coinCount + _coinDrop);
+
+                int enemyOnField = VariableManager.GetValue(_enemyOnField);
+                VariableManager.SetValue(_enemyOnField, enemyOnField - 1);
 
                 Destroy(gameObject);
             }
