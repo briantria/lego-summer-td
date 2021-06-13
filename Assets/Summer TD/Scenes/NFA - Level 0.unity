@@ -148,6 +148,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1958147149}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8762611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1958147149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fae508f14ed46c9802a77739d8a0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &20965534
 GameObject:
   m_ObjectHideFlags: 0
@@ -4695,6 +4707,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178676122723052567, guid: ea265bc597495427489e129dab6e40fa,
+        type: 3}
+      propertyPath: m_Triggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178676122723052567, guid: ea265bc597495427489e129dab6e40fa,
+        type: 3}
+      propertyPath: m_Triggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 8762611}
+    - target: {fileID: 9178676122723052567, guid: ea265bc597495427489e129dab6e40fa,
+        type: 3}
+      propertyPath: m_ObjectiveConfigurations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178676122723052567, guid: ea265bc597495427489e129dab6e40fa,
+        type: 3}
+      propertyPath: m_ObjectiveConfigurations.Array.data[0].Title
+      value: Complete the Objective
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178676122723052567, guid: ea265bc597495427489e129dab6e40fa,
+        type: 3}
+      propertyPath: m_ObjectiveConfigurations.Array.data[0].Description
+      value: Just do it!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea265bc597495427489e129dab6e40fa, type: 3}
@@ -9341,8 +9378,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.31, y: 1, z: 9.24}
+  m_LocalRotation: {x: 0.22975291, y: -0.000000016741152, z: 0.0000000039520502, w: 0.973249}
+  m_LocalPosition: {x: 13.31, y: 9, z: 1.2399998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 827936767}
@@ -12221,7 +12258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2099296009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20029,7 +20066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 12, z: -16}
+  m_FollowOffset: {x: 0, y: 8, z: -8}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -20628,18 +20665,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 2, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 4, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 3
   m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
-  m_ScreenY: 0.62
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
+  m_ScreenY: 0.5
+  m_DeadZoneWidth: 0.56
+  m_DeadZoneHeight: 0.58
   m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneHeight: 0.83
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -20660,7 +20697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8688045825249898458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20703,8 +20740,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8688045825249898455}
-  m_LocalRotation: {x: 0.19479905, y: -0.000000018868795, z: 0.000000003747412, w: 0.9808432}
-  m_LocalPosition: {x: 2.94, y: 13, z: -12.61}
+  m_LocalRotation: {x: 0.22975291, y: -0.000000016741152, z: 0.0000000039520502, w: 0.973249}
+  m_LocalPosition: {x: 13.31, y: 9, z: 1.2399998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8688045826134765288}
