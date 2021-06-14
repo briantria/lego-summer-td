@@ -12,6 +12,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         #region Serialized Fields
         [SerializeField] private GameObject _basicTurret;
         [SerializeField] private GameObject _turretSeller;
+        [SerializeField] private GameObject _turretBuyer;
         [SerializeField] private GameObject _gameStartTrigger;
 
         [Space(8)]
@@ -43,6 +44,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void ShowTurret()
         {
             _turretSeller.SetActive(false);
+            _turretBuyer.SetActive(true);
             _gameStartTrigger.SetActive(true);
 
             GameObject basicTurretObj = Instantiate(_basicTurret, transform);
@@ -54,6 +56,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void ShowTurretSeller()
         {
             _gameStartTrigger.SetActive(false);
+            _turretBuyer.SetActive(false);
             _turretSeller.SetActive(true);
 
             if (_turretController != null)
@@ -79,6 +82,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             {
                 case GameState.ShootMode:
                     _gameStartTrigger.SetActive(false);
+                    _turretBuyer.SetActive(false);
                     break;
 
                 default:
@@ -92,7 +96,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
         //    _gameStartTrigger.SetActive(false);
         //}
 
-        public void Activate()
+        private void SellTurret()
+        {
+            int currentCoins = VariableManager.GetValue(_coins);
+            VariableManager.SetValue(_coins, currentCoins + _price);
+            ShowTurretSeller();
+        }
+
+        private void BuyTurret()
         {
             int currentCoins = VariableManager.GetValue(_coins);
             if (currentCoins - _price < 0)
@@ -102,6 +113,18 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             VariableManager.SetValue(_coins, currentCoins - _price);
             ShowTurret();
+        }
+
+        public void Activate()
+        {
+            if (_turretController != null)
+            {
+                SellTurret();
+            }
+            else
+            {
+                BuyTurret();
+            }
         }
     }
 }
