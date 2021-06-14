@@ -6,7 +6,7 @@ using Unity.LEGO.Game;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
-    [RequireComponent(typeof(CustomAction))]
+    //[RequireComponent(typeof(CustomAction))]
     public class TurretSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields

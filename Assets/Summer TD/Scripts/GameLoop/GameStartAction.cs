@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
-    [RequireComponent(typeof(CustomAction))]
+    //[RequireComponent(typeof(CustomAction))]
     public class GameStartAction : MonoBehaviour, IAction
     {
         public static Action OnGameStart;
