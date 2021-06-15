@@ -17,6 +17,10 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [Space(8)]
         [SerializeField] private float _horizontalSpeed = 2.0f;
         [SerializeField] private float _verticalSpeed = 2.0f;
+
+        [Space(8)]
+        [SerializeField] private GameObject _autoShooter;
+        [SerializeField] private GameObject _manualShooter;
         #endregion
 
         [SerializeField] private Transform _testTarget;
@@ -52,10 +56,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
             if (_playerTransform == null)
             {
                 //Debug.Log("Missing player transform / not selected.");
+                _autoShooter.SetActive(true);
+                _manualShooter.SetActive(false);
                 _aimRoutine = StartCoroutine(AutoAimRoutine());
                 return;
             }
 
+            _autoShooter.SetActive(false);
+            _manualShooter.SetActive(true);
             Vector3 playerSeat = _playerSeat.position;
             playerSeat.y += 0.3f;
             _playerTransform.position = playerSeat;
@@ -151,17 +159,18 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 Vector3 targetDirection;
                 Quaternion newRotation;
 
-                step = _horizontalSpeed;// * Time.deltaTime;
+                step = _horizontalSpeed * 0.1f;// Time.deltaTime;
                 targetDirection = target.position - _horizontalPivot.position;
                 targetDirection.y = _horizontalPivot.position.y;
                 newRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
-                _horizontalPivot.localRotation = Quaternion.RotateTowards(_horizontalPivot.localRotation, newRotation, step);
+                _horizontalPivot.rotation = Quaternion.RotateTowards(_horizontalPivot.rotation, newRotation, step);
 
                 //step = _verticalSpeed;// * Time.deltaTime;
                 //targetDirection = target.position - _verticalPivot.position;
-                //targetDirection.z = _verticalPivot.position.z;
                 //newRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
-                //_verticalPivot.localRotation = Quaternion.RotateTowards(_verticalPivot.localRotation, newRotation, step);
+                //Vector3 euler = Quaternion.RotateTowards(_verticalPivot.rotation, newRotation, step).eulerAngles;
+                //euler.y = euler.z = 0;
+                //_verticalPivot.eulerAngles = euler;
 
                 yield return new WaitForEndOfFrame();
             }
@@ -184,7 +193,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 _horizontalPivot.Rotate(0, h, 0);
 
                 float v = _verticalSpeed * Input.GetAxis("Mouse Y");
-                _verticalPivot.Rotate(0, 0, v);
+                _verticalPivot.Rotate(v, 0, 0);
 
                 Vector3 playerSeat = _playerSeat.position;
                 playerSeat.y += 0.3f;
