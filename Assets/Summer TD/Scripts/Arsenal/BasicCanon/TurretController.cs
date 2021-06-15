@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using Unity.LEGO.Game;
@@ -18,35 +19,47 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private float _verticalSpeed = 2.0f;
         #endregion
 
+        [SerializeField] private Transform _testTarget;
+
         private Coroutine _aimRoutine;
         private Transform _playerTransform;
-        private bool _selected;
+        private List<Frog> _frogTargets = new List<Frog>();
 
         private void OnEnable()
         {
             GameLoopController.OnChangeGameState += OnChangeGameState;
+            Frog.OnSpawn += OnSpawnFrog;
+            Frog.OnDespawn += OnDespawnFrog;
             EventManager.AddListener<OptionsMenuEvent>(OnGamePause);
         }
 
         private void OnDisable()
         {
             GameLoopController.OnChangeGameState -= OnChangeGameState;
+            Frog.OnSpawn -= OnSpawnFrog;
+            Frog.OnDespawn -= OnDespawnFrog;
             EventManager.RemoveListener<OptionsMenuEvent>(OnGamePause);
         }
+
+        //private void Start()
+        //{
+        //    // DEBUG
+        //    StartCoroutine(AutoAimRoutine());
+        //}
 
         private void OnReleaseFrogs()
         {
             if (_playerTransform == null)
             {
-                Debug.Log("Missing player transform");
+                //Debug.Log("Missing player transform / not selected.");
+                _aimRoutine = StartCoroutine(AutoAimRoutine());
                 return;
             }
 
-            //Vector3 playerSeat = _playerSeat.position;
-            //playerSeat.y += 0.3f;
-
-            //_playerTransform.position = playerSeat;
-            //_playerTransform.forward = _playerSeat.right;
+            Vector3 playerSeat = _playerSeat.position;
+            playerSeat.y += 0.3f;
+            _playerTransform.position = playerSeat;
+            _playerTransform.forward = _playerSeat.right;
             _aimRoutine = StartCoroutine(AimRoutine());
         }
 
@@ -56,9 +69,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
             {
                 StopCoroutine(_aimRoutine);
             }
-            else if (!evt.Active)
+            else if (!evt.Active && _playerTransform != null)
             {
                 _aimRoutine = StartCoroutine(AimRoutine());
+            }
+            else if (!evt.Active)
+            {
+                _aimRoutine = StartCoroutine(AutoAimRoutine());
             }
         }
 
@@ -88,7 +105,67 @@ namespace Lego.SummerJam.NoFrogsAllowed
                     break;
             }
         }
+
+        private void OnSpawnFrog(Frog frog)
+        {
+            if (_playerTransform != null)
+            {
+                // selected
+                return;
+            }
+
+            _frogTargets.Add(frog);
+        }
+
+        private void OnDespawnFrog(Frog frog)
+        {
+            if (_playerTransform != null)
+            {
+                // selected
+                return;
+            }
+
+            _frogTargets.Remove(frog);
+        }
         #endregion
+
+        private IEnumerator AutoAimRoutine()
+        {
+            if (_horizontalPivot == null ||
+                _verticalPivot == null)
+            {
+                yield break;
+            }
+
+            while (true)
+            {
+                if (_frogTargets == null || _frogTargets.Count == 0)
+                {
+                    yield return new WaitForEndOfFrame();
+                    continue;
+                }
+
+                Transform target = _frogTargets[0].transform;
+                //Transform target = _testTarget;
+                float step;
+                Vector3 targetDirection;
+                Quaternion newRotation;
+
+                step = _horizontalSpeed;// * Time.deltaTime;
+                targetDirection = target.position - _horizontalPivot.position;
+                targetDirection.y = _horizontalPivot.position.y;
+                newRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+                _horizontalPivot.localRotation = Quaternion.RotateTowards(_horizontalPivot.localRotation, newRotation, step);
+
+                //step = _verticalSpeed;// * Time.deltaTime;
+                //targetDirection = target.position - _verticalPivot.position;
+                //targetDirection.z = _verticalPivot.position.z;
+                //newRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+                //_verticalPivot.localRotation = Quaternion.RotateTowards(_verticalPivot.localRotation, newRotation, step);
+
+                yield return new WaitForEndOfFrame();
+            }
+        }
 
         private IEnumerator AimRoutine()
         {
@@ -97,6 +174,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
             {
                 yield break;
             }
+
+            // add delay to wait for camera transition
+            yield return new WaitForSecondsRealtime(1.5f);
 
             while (true)
             {

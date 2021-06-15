@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
 {
     public class Frog : MonoBehaviour
     {
+        public static Action<Frog> OnSpawn;
+        public static Action<Frog> OnDespawn;
+
         #region Serialized Fields
         [SerializeField] private float _life = 5.0f;
         [SerializeField] private float _jumpStrength = 2.0f;
@@ -30,6 +34,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _rb = GetComponent<Rigidbody>();
             _rb.velocity = Vector3.zero;
             _slowRate = 0.0f;
+            OnSpawn?.Invoke(this);
+        }
+
+        private void OnDestroy()
+        {
+            OnDespawn?.Invoke(this);
         }
 
         private void FixedUpdate()
