@@ -102,6 +102,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 case GameState.ShootMode:
                     {
                         _buyerObj.SetActive(false);
+                        _sellerObj.SetActive(false);
                         break;
                     }
 

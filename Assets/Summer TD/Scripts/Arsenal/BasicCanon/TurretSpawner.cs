@@ -83,6 +83,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 case GameState.ShootMode:
                     _gameStartTrigger.SetActive(false);
                     _turretBuyer.SetActive(false);
+                    _turretSeller.SetActive(false);
                     break;
 
                 default:
