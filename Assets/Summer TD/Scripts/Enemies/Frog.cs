@@ -12,6 +12,10 @@ namespace Lego.SummerJam.NoFrogsAllowed
         public static Action<Frog> OnDespawn;
 
         #region Serialized Fields
+        [SerializeField] private GameObject _frogModel;
+        [SerializeField] private GameObject _coinDropParticle;
+
+        [Space(8)]
         [SerializeField] private float _life = 5.0f;
         [SerializeField] private float _jumpStrength = 2.0f;
         [SerializeField] private int _damage = 1;
@@ -88,7 +92,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 int enemyOnField = VariableManager.GetValue(_enemyOnField);
                 VariableManager.SetValue(_enemyOnField, enemyOnField - 1);
 
-                Destroy(gameObject);
+                StartCoroutine(CoinDropRoutine());
             }
         }
 
@@ -119,6 +123,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
             bool isGrounded = hits.Length > 0;
             //Debug.Log("grounded? " + isGrounded.ToString());
             return isGrounded;
+        }
+
+        private IEnumerator CoinDropRoutine()
+        {
+            _frogModel.SetActive(false);
+            _coinDropParticle.SetActive(true);
+            yield return new WaitForSeconds(2.0f);
+            Destroy(gameObject);
         }
     }
 }
