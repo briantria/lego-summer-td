@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98779c1afa4243edb74ddfb76dfb6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Menu Intro
+  sceneName: NFA Intro
 --- !u!1 &579334307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98779c1afa4243edb74ddfb76dfb6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: NFA - Level 0
+  sceneName: NFA - Level
 --- !u!1 &1660196216
 GameObject:
   m_ObjectHideFlags: 0

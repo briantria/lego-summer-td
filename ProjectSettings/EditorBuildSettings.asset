@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Summer TD/Scenes/NFA - Level 0.unity
+    path: Assets/Summer TD/Scenes/NFA - Level.unity
     guid: f6ba535790b5f9f4c8302c0e6da49054
   - enabled: 1
     path: Assets/Summer TD/Scenes/NFA Lose.unity
@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Summer TD/Scenes/NFA Win.unity
     guid: e7ca0fa43199c4745bae6848e98abcee
+  - enabled: 1
+    path: Assets/Summer TD/Scenes/NFA Intro.unity
+    guid: 96fa79fdeebf612459ec6173ff8def86
   m_configObjects: {}

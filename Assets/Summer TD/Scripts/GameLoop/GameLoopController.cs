@@ -25,6 +25,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void OnEnable()
         {
             EventManager.AddListener<OptionsMenuEvent>(OnGamePause);
+            EventManager.AddListener<GameOverEvent>(OnGameOver);
+
             GameStartAction.OnGameStart += NextState;
             GameStartAction.OnSelectCannon += OnSelectTurret;
             CameraDirector.OnLevelIntroDone += NextState;
@@ -33,6 +35,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void OnDisable()
         {
             EventManager.RemoveListener<OptionsMenuEvent>(OnGamePause);
+            EventManager.RemoveListener<GameOverEvent>(OnGameOver);
+
             GameStartAction.OnGameStart -= NextState;
             GameStartAction.OnSelectCannon -= OnSelectTurret;
             CameraDirector.OnLevelIntroDone -= NextState;
@@ -117,6 +121,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _minifigController.SetInputEnabled(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+
+        private void OnGameOver(GameOverEvent evt)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
         #endregion
     }
