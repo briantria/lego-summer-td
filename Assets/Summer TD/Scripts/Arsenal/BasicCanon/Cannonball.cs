@@ -1,11 +1,15 @@
 using System.Linq;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 namespace Lego.SummerJam.NoFrogsAllowed
 {
     public class Cannonball : MonoBehaviour
     {
+        [SerializeField] private GameObject _shell;
+        [SerializeField] private GameObject _explodeParticle;
+
+        [Space(8)]
         [SerializeField] private float _explosionStrength = 2.0f;
         [SerializeField] private float _explosionRadius = 5.0f;
         [SerializeField] private float _damage = 2.0f;
@@ -44,6 +48,15 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 }
             }
 
+            StartCoroutine(ExplodeRoutine());
+        }
+
+        private IEnumerator ExplodeRoutine()
+        {
+            _shell.SetActive(false);
+            _explodeParticle.SetActive(true);
+
+            yield return new WaitForSeconds(2.0f);
             Destroy(gameObject);
         }
     }
