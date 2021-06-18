@@ -2970,32 +2970,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 434705557}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &434705561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434705560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7f12643eefb4b4d808df165b776383, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Scope: 1
-  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Speak Action.png
-  m_FlashColour: {r: 0.6901961, g: 1.3411765, b: 0.50980395, a: 2}
-  m_Brick: {fileID: 434705559}
-  m_BrickPivotOffset: {x: -0.39999962, y: 0.569, z: -0.39999962}
-  m_Audio: {fileID: 0}
-  m_AudioVolume: 1
-  m_Pause: 1
-  m_Repeat: 0
-  m_SpeechBubbleInfos:
-  - Type: 3
-    Text: Press (E) to use this cannon & start the game!
-  m_SpeechBubblePromptPrefab: {fileID: 2153783478792524732, guid: 8f2336181d72ea740bdf64bb1cd14b33,
-    type: 3}
 --- !u!114 &434705562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,10 +3014,7 @@ MonoBehaviour:
   m_Conditions: []
   m_Target: 1
   m_SpecificTargetActions:
-  - {fileID: 434705561}
-  - {fileID: 434705561}
-  - {fileID: 434705561}
-  - {fileID: 434705561}
+  - {fileID: 1075567201}
   m_Repeat: 1
   m_Sense: 0
   m_SenseTag: 
@@ -8207,6 +8178,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1075567201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4506487625966563833, guid: d39f04291e3b341f78bf4cfa451accd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 352256622}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7f12643eefb4b4d808df165b776383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1104654561
 GameObject:
   m_ObjectHideFlags: 0
@@ -12692,7 +12675,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.22975291, y: 0.000000016746089, z: -0.0000000039532155, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: 0.00000004294981, z: -0.000000010139075, w: 0.973249}
   m_LocalPosition: {x: -13.1, y: 9, z: -1.9000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -14805,6 +14788,8 @@ MonoBehaviour:
   _setupCamObj: {fileID: 8688045825249898455}
   _tpsCamObj: {fileID: 2099296008}
   _levelIntroCamObj: {fileID: 1973185672}
+  _speakHudObj: {fileID: 1071980556}
+  _mainCamObj: {fileID: 1687258581}
 --- !u!4 &1925418272
 Transform:
   m_ObjectHideFlags: 0
@@ -34997,7 +34982,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8688045825249898455}
-  m_LocalRotation: {x: 0.22975291, y: 0.000000016746089, z: -0.0000000039532155, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: 0.00000004294981, z: -0.000000010139075, w: 0.973249}
   m_LocalPosition: {x: -13.1, y: 9, z: -1.9000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

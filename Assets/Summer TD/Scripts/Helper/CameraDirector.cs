@@ -12,6 +12,10 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private GameObject _setupCamObj;
         [SerializeField] private GameObject _tpsCamObj;
         [SerializeField] private GameObject _levelIntroCamObj;
+        [SerializeField] private GameObject _speakHudObj;
+
+        [Space(8)]
+        [SerializeField] private GameObject _mainCamObj;
 
         private CinemachineVirtualCamera _levelIntroCam;
         private CinemachineVirtualCamera _tpsCam;
@@ -45,6 +49,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _tpsCamObj.SetActive(true);
             _setupCamObj.SetActive(false);
             _levelIntroCamObj.SetActive(false);
+            _speakHudObj.SetActive(false);
+            _mainCamObj.tag = "MainCamera";
         }
 
         private void ActivateSetupCam()
@@ -52,6 +58,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _setupCamObj.SetActive(true);
             _tpsCamObj.SetActive(false);
             _levelIntroCamObj.SetActive(false);
+            _speakHudObj.SetActive(true);
+            _mainCamObj.tag = "Untagged";
         }
 
         private void ActivateLevelIntroCam()
@@ -59,6 +67,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _levelIntroCamObj.SetActive(true);
             _setupCamObj.SetActive(false);
             _tpsCamObj.SetActive(false);
+            _speakHudObj.SetActive(false);
+            _mainCamObj.tag = "Untagged";
 
             _levelIntroDollyPath.m_PathPosition = 0.0f;
             StartCoroutine(LevelIntroTrackRoutine());
