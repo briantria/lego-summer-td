@@ -15,6 +15,6 @@ MonoBehaviour:
   _waveSpawnDataList:
   - _waveDelay: 0
     _spawnInterval: 3
-    _spawnCount: 50
+    _spawnCount: 2
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
