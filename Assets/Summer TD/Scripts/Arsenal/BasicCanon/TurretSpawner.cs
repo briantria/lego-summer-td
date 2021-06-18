@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
     //[RequireComponent(typeof(CustomAction))]
     public class TurretSpawner : MonoBehaviour, IAction
     {
+        public static Action OnBuyCannon;
+
         #region Serialized Fields
         [SerializeField] private int _id;
 
@@ -83,7 +86,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             switch (currentGameState)
             {
-                case GameState.ShootMode:
+                case GameState.LevelIntro:
                     _gameStartTrigger.SetActive(false);
                     _turretBuyer.SetActive(false);
                     _turretSeller.SetActive(false);
@@ -116,6 +119,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             }
 
             VariableManager.SetValue(_coins, currentCoins - _price);
+            OnBuyCannon?.Invoke();
             ShowTurret();
         }
 

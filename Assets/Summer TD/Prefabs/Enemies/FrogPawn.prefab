@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de177662821d4b4aaa5bdfdbdd10919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frogModel: {fileID: 0}
+  _frogModel: {fileID: 3602743248087549375}
   _coinDropParticle: {fileID: 5405221870440904620}
   _life: 5
   _jumpStrength: 50
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3816446180307896923}
   - component: {fileID: 3715161732985292576}
   - component: {fileID: 8892152787138236803}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Main model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

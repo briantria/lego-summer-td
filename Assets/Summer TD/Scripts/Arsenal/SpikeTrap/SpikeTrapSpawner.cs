@@ -114,7 +114,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 //        break;
                 //    }
 
-                case GameState.ShootMode:
+                case GameState.LevelIntro:
                     {
                         _buyerObj.SetActive(false);
                         _sellerObj.SetActive(false);
