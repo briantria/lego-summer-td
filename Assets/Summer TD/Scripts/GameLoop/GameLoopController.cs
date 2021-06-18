@@ -40,6 +40,13 @@ namespace Lego.SummerJam.NoFrogsAllowed
             GameStartAction.OnGameStart -= NextState;
             GameStartAction.OnSelectCannon -= OnSelectTurret;
             CameraDirector.OnLevelIntroDone -= NextState;
+
+            AssetResources.GameProgress.SaveData();
+        }
+
+        private void Awake()
+        {
+            AssetResources.GameProgress.LoadData();
         }
 
         private void Start()

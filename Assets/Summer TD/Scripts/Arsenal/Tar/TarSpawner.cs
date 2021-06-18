@@ -8,6 +8,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class TarSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields
+        [SerializeField] private int _id;
+
+        [Space(8)]
         [SerializeField] private GameObject _buyerObj;
         [SerializeField] private GameObject _sellerObj;
         [SerializeField] private GameObject _trapGroundObj;
@@ -23,6 +26,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         #endregion
 
         private GameObject _tarObj;
+        private GameProgressData _gameProgress;
 
         #region Unity Messages
         private void OnEnable()
@@ -37,7 +41,15 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void Start()
         {
-            ShowSeller();
+            _gameProgress = AssetResources.GameProgress;
+            if (_gameProgress.Data.Level > 0)
+            {
+                ShowSeller();
+                return;
+            }
+
+            _buyerObj.SetActive(false);
+            _sellerObj.SetActive(false);
         }
         #endregion
 
