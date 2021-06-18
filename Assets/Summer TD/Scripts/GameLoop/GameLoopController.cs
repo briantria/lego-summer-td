@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Unity.LEGO.Minifig;
 using Unity.LEGO.Game;
@@ -18,9 +19,17 @@ namespace Lego.SummerJam.NoFrogsAllowed
         public static Action<Transform> OnSetPlayerTransform;
         //public static Action OnReleaseFrogs;
 
+        #region Serialized Fields
         [SerializeField] private MinifigController _minifigController;
 
+        [Space(10)]
+        // Note: The following 'Variable(s)' was created using LEGO Microgame Editors
+        // It's a ScriptableObject located at Assets/LEGO/Scriptable Objects
+        [SerializeField] private Variable _coins;
+        #endregion
+
         private GameState _currentGameState;
+        private GameProgressData _gameProgress;
 
         private void OnEnable()
         {
@@ -41,17 +50,25 @@ namespace Lego.SummerJam.NoFrogsAllowed
             GameStartAction.OnSelectCannon -= OnSelectTurret;
             CameraDirector.OnLevelIntroDone -= NextState;
 
-            AssetResources.GameProgress.SaveData();
+            _gameProgress.SaveData();
         }
 
         private void Awake()
         {
-            AssetResources.GameProgress.LoadData();
+            _gameProgress = AssetResources.GameProgress;
+            _gameProgress.LoadData();
         }
 
         private void Start()
         {
             ChangeToBuildMode();
+            StartCoroutine(LoadGameDataRoutine());
+        }
+
+        private IEnumerator LoadGameDataRoutine()
+        {
+            yield return new WaitForEndOfFrame();
+            VariableManager.SetValue(_coins, _gameProgress.Data.Money);
         }
 
         #region Event Handlers

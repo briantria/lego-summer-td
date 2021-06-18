@@ -7538,6 +7538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minifigController: {fileID: 4124099547603127727}
+  _coins: {fileID: 11400000, guid: 74aa89e56d40b27478f9e25850a8a552, type: 2}
 --- !u!4 &274862585
 Transform:
   m_ObjectHideFlags: 0
@@ -7702,6 +7703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b628440a425f4af4fb48a5fbd4a89722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 3
   _basicTurret: {fileID: 926005713674443767, guid: 7c74bbd9464b9c6458af949cc65c17d5,
     type: 3}
   _turretSeller: {fileID: 2006163957}
@@ -21216,7 +21218,7 @@ GameObject:
   - component: {fileID: 789199424}
   - component: {fileID: 789199423}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: Cannon (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21252,6 +21254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b628440a425f4af4fb48a5fbd4a89722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 0
   _basicTurret: {fileID: 926005713674443767, guid: 7c74bbd9464b9c6458af949cc65c17d5,
     type: 3}
   _turretSeller: {fileID: 1821619723}
@@ -34330,6 +34333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b628440a425f4af4fb48a5fbd4a89722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 2
   _basicTurret: {fileID: 926005713674443767, guid: 7c74bbd9464b9c6458af949cc65c17d5,
     type: 3}
   _turretSeller: {fileID: 1637840288}
@@ -52275,6 +52279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b628440a425f4af4fb48a5fbd4a89722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 1
   _basicTurret: {fileID: 926005713674443767, guid: 7c74bbd9464b9c6458af949cc65c17d5,
     type: 3}
   _turretSeller: {fileID: 478558461}

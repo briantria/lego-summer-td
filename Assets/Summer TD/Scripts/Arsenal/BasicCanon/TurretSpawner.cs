@@ -10,6 +10,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class TurretSpawner : MonoBehaviour, IAction
     {
         #region Serialized Fields
+        [SerializeField] private int _id;
+
+        [Space(8)]
         [SerializeField] private GameObject _basicTurret;
         [SerializeField] private GameObject _turretSeller;
         [SerializeField] private GameObject _turretBuyer;
