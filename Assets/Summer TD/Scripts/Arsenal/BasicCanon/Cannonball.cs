@@ -14,8 +14,15 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private float _explosionRadius = 5.0f;
         [SerializeField] private float _damage = 2.0f;
 
+        private bool _exploded = false;
+
         private void OnCollisionEnter(Collision collision)
         {
+            if (_exploded)
+            {
+                return;
+            }
+
             int hitLayer = collision.gameObject.layer;
             string hitLayerName = LayerMask.LayerToName(hitLayer);
             string[] maskNames = new string[] { "Enemy", "Environment" };
@@ -53,6 +60,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private IEnumerator ExplodeRoutine()
         {
+            _exploded = true;
             _shell.SetActive(false);
             _explodeParticle.SetActive(true);
 
