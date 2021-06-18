@@ -32,6 +32,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private Transform _target;
         private Rigidbody _rb;
         private float _slowRate;
+        private bool _isDead = false;
 
         private void Start()
         {
@@ -80,6 +81,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         public void Damage(float damage)
         {
+            if (_isDead)
+            {
+                return;
+            }
+
             _life -= damage;
             if (_life <= 0)
             {
@@ -89,6 +95,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 int enemyOnField = VariableManager.GetValue(_enemyOnField);
                 VariableManager.SetValue(_enemyOnField, enemyOnField - 1);
 
+                _isDead = true;
                 StartCoroutine(CoinDropRoutine());
             }
         }
