@@ -37,8 +37,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private IEnumerator AttackRoutine()
         {
-            float hidePosY = -1.57f;
-            float outPosY = -0.6f;
+            float hidePosY = -0.8f;
+            float outPosY = 0.2f;
             Vector3 pos = _spikesTransform.localPosition;
             pos.y = hidePosY;
             _spikesTransform.localPosition = pos;

@@ -83,9 +83,6 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _life -= damage;
             if (_life <= 0)
             {
-                // TODO: death animation
-                // TODO: coin drop animation
-
                 int coinCount = VariableManager.GetValue(_coins);
                 VariableManager.SetValue(_coins, coinCount + _coinDrop);
 

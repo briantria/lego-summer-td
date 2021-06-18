@@ -10,6 +10,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         #region Serialized Fields
         [SerializeField] private GameObject _buyerObj;
         [SerializeField] private GameObject _sellerObj;
+        [SerializeField] private GameObject _trapGroundObj;
         [SerializeField] private GameObject _tarPrefab;
 
         [Space(8)]
@@ -44,6 +45,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             _sellerObj.SetActive(true);
             _buyerObj.SetActive(false);
+            _trapGroundObj.SetActive(true);
             if (_tarObj != null)
             {
                 Destroy(_tarObj);
@@ -53,6 +55,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void ShowTar()
         {
             _sellerObj.SetActive(false);
+            _trapGroundObj.SetActive(false);
             _buyerObj.SetActive(true);
             _tarObj = Instantiate(_tarPrefab, transform);
             _tarObj.SetActive(true);

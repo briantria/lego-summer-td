@@ -10,6 +10,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         #region Serialized Fields
         [SerializeField] private GameObject _buyerObj;
         [SerializeField] private GameObject _sellerObj;
+        [SerializeField] private GameObject _trapGroundObj;
         [SerializeField] private GameObject _spikeTrapPrefab;
 
         [Space(8)]
@@ -43,6 +44,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void ShowSpikeSeller()
         {
             _sellerObj.SetActive(true);
+            _trapGroundObj.SetActive(true);
             _buyerObj.SetActive(false);
             if (_spikeTrapObj != null)
             {
@@ -53,6 +55,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private void ShowSpikeTrap()
         {
             _sellerObj.SetActive(false);
+            _trapGroundObj.SetActive(false);
             _buyerObj.SetActive(true);
             _spikeTrapObj = Instantiate(_spikeTrapPrefab, transform);
             _spikeTrapObj.SetActive(true);
