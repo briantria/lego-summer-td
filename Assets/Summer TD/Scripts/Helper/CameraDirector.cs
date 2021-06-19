@@ -7,6 +7,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 {
     public class CameraDirector : MonoBehaviour
     {
+        public static Action OnExplodeGates;
         public static Action OnLevelIntroDone;
 
         [SerializeField] private GameObject _setupCamObj;
@@ -82,6 +83,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 _levelIntroDollyPath.m_PathPosition += Time.deltaTime * 0.5f;
                 yield return null;
             }
+
+            yield return new WaitForSeconds(0.2f);
+            OnExplodeGates?.Invoke();
 
             yield return new WaitForSeconds(1.0f);
             OnLevelIntroDone?.Invoke();

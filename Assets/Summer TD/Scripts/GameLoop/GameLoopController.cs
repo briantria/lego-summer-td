@@ -10,6 +10,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
     {
         BuildMode,
         LevelIntro,
+        GateExplosion,
         ShootMode
     }
 
@@ -38,6 +39,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             GameStartAction.OnGameStart += NextState;
             GameStartAction.OnSelectCannon += OnSelectTurret;
+
+            CameraDirector.OnExplodeGates += NextState;
             CameraDirector.OnLevelIntroDone += NextState;
         }
 
@@ -48,6 +51,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             GameStartAction.OnGameStart -= NextState;
             GameStartAction.OnSelectCannon -= OnSelectTurret;
+
+            CameraDirector.OnExplodeGates -= NextState;
             CameraDirector.OnLevelIntroDone -= NextState;
 
             _gameProgress.Data.Money = VariableManager.GetValue(_coins);
@@ -84,6 +89,11 @@ namespace Lego.SummerJam.NoFrogsAllowed
                         break;
                     }
                 case GameState.LevelIntro:
+                    {
+                        _currentGameState = GameState.GateExplosion;
+                        break;
+                    }
+                case GameState.GateExplosion:
                     {
                         ChangeToShootMode();
                         break;
