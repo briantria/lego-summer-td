@@ -11,4 +11,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
     { 
         public static readonly GameProgressData GameProgress = Resources.Load<GameProgressData>("GameProgressData");
     }
+
+    public static class SceneId
+    { 
+        public static readonly string NfaLevelScene = "NFA - Level";
+    }
 }

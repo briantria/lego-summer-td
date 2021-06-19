@@ -14063,7 +14063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520439054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 32.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1177747009}
@@ -30834,6 +30834,7 @@ MonoBehaviour:
   _welcomeMessageObj: {fileID: 1082571926}
   _startGameMessageObj: {fileID: 689007261}
   _trapsUnlockMessageObj: {fileID: 0}
+  _defaultMessageObj: {fileID: 0}
 --- !u!114 &1075567201 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4506487625966563833, guid: d39f04291e3b341f78bf4cfa451accd7,
@@ -72751,12 +72752,12 @@ PrefabInstance:
     - target: {fileID: 2742812528658015894, guid: cc1e3f9715798ea4fab9885b641b3752,
         type: 3}
       propertyPath: m_WinScene
-      value: NFA Win
+      value: NFA Game Over
       objectReference: {fileID: 0}
     - target: {fileID: 2742812528658015894, guid: cc1e3f9715798ea4fab9885b641b3752,
         type: 3}
       propertyPath: m_LoseScene
-      value: NFA Lose
+      value: NFA Game Over
       objectReference: {fileID: 0}
     - target: {fileID: 2742812528658015895, guid: cc1e3f9715798ea4fab9885b641b3752,
         type: 3}

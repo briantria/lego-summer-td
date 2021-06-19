@@ -9,19 +9,32 @@ namespace Lego.SummerJam.NoFrogsAllowed
     public class GameProgressData : ScriptableObject
     {
         private const string PK_NFA_GAMEDATA = "Lego.SummerJam.NoFrogsAllowed.GameProgressData";
+        private const int DEFAULT_MONEY = 600;
+        private const int DEFAULT_LEVEL = 0;
+        private const int LAST_LEVEL = 3;
 
         public GameProgressDataModel Data { get; set; }
+
+        public bool IsLastLevel
+        {
+            get => Data.Level >= LAST_LEVEL;
+        }
+
+        public void LoadDefaults()
+        {
+            Data = new GameProgressDataModel
+            {
+                Level = DEFAULT_LEVEL,
+                Money = DEFAULT_MONEY
+            };
+        }
 
         public void LoadData()
         {
             string json = PlayerPrefs.GetString(PK_NFA_GAMEDATA, string.Empty);
             if (string.IsNullOrEmpty(json))
             {
-                Data = new GameProgressDataModel
-                { 
-                    Level = 0,
-                    Money = 600
-                };
+                LoadDefaults();
                 return;
             }
 

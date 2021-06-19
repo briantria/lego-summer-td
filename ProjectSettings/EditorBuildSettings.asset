@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Summer TD/Scenes/NFA Intro.unity
     guid: 96fa79fdeebf612459ec6173ff8def86
+  - enabled: 1
+    path: Assets/Summer TD/Scenes/NFA Game Over.unity
+    guid: 8495c5ac441c19441b8f448300801bbc
   m_configObjects: {}

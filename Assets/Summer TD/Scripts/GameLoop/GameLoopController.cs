@@ -151,6 +151,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            _gameProgress.Data.Win = evt.Win;
         }
         #endregion
     }

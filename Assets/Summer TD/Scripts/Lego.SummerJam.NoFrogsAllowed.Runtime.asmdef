@@ -6,7 +6,8 @@
         "Cinemachine",
         "Unity.LEGO.Behaviours",
         "Unity.LEGO.Game",
-        "Unity.LEGO.Minifig"
+        "Unity.LEGO.Minifig",
+        "Unity.LEGO.UI"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
