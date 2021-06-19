@@ -1,4 +1,4 @@
-using System.Linq;
+using System;
 using UnityEngine;
 using Unity.LEGO.Game;
 
@@ -7,6 +7,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
     [RequireComponent(typeof(CustomAction))]
     public class SpikeTrapSpawner : MonoBehaviour, IAction
     {
+        public static Action OnBuyTrap;
+
         #region Serialized Fields
         [SerializeField] private int _id;
 
@@ -49,32 +51,6 @@ namespace Lego.SummerJam.NoFrogsAllowed
             };
             _gameProgress = AssetResources.GameProgress;
         }
-
-        //private void Start()
-        //{
-        //    if (_gameProgress.Data.Level > 0)
-        //    {
-        //        _buyerObj.SetActive(false);
-        //        _sellerObj.SetActive(false);
-        //        return;
-        //    }
-
-        //    TrapDataModel savedTrap = _gameProgress.Data.TrapList
-        //        .Where(trap =>
-        //        {
-        //            return trap.Type == TrapType.Spikes && trap.ID == _id;
-        //        })
-        //        .FirstOrDefault();
-
-        //    if (savedTrap != null)
-        //    {
-        //        ShowSpikeTrap();
-        //    }
-        //    else
-        //    {
-        //        ShowSpikeSeller();
-        //    }
-        //}
         #endregion
 
         public void HideAll()
@@ -114,6 +90,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             _gameProgress.Data.TrapList.Add(_data);
             VariableManager.SetValue(_coins, currentCoins - _price);
             ShowSpikeTrap();
+            OnBuyTrap?.Invoke();
         }
 
         private void SellTrap()

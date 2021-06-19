@@ -9,26 +9,37 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [SerializeField] private GameObject _welcomeMessageObj;
         [SerializeField] private GameObject _startGameMessageObj;
         [SerializeField] private GameObject _trapsUnlockMessageObj;
-        [SerializeField] private GameObject _defaultMessageObj;
+        [SerializeField] private GameObject _havocMessageObj;
+
+        [SerializeField] private List<GameObject> _defaultMessageObjs;
 
         private GameProgressData _gameProgress;
 
         private void OnEnable()
         {
             TurretSpawner.OnBuyCannon += OnBuyCannon;
+            TarSpawner.OnBuyTrap += OnBuyTrap;
+            SpikeTrapSpawner.OnBuyTrap += OnBuyTrap;
         }
 
         private void OnDisable()
         {
             TurretSpawner.OnBuyCannon -= OnBuyCannon;
+            TarSpawner.OnBuyTrap -= OnBuyTrap;
+            SpikeTrapSpawner.OnBuyTrap -= OnBuyTrap;
         }
 
         private void Start()
         {
             _welcomeMessageObj.SetActive(false);
             _startGameMessageObj.SetActive(false);
-            //_trapsUnlockMessageObj.SetActive(false);
-            //_defaultMessageObj.SetActive(false);
+            _trapsUnlockMessageObj.SetActive(false);
+            _havocMessageObj.SetActive(false);
+
+            foreach (GameObject defaultMessageObj in _defaultMessageObjs)
+            {
+                defaultMessageObj.SetActive(false);
+            }
 
             _gameProgress = AssetResources.GameProgress;
             switch(_gameProgress.Data.Level)
@@ -38,11 +49,12 @@ namespace Lego.SummerJam.NoFrogsAllowed
                     break;
 
                 case 1:
-                    //_trapsUnlockMessageObj.SetActive(true);
+                    _trapsUnlockMessageObj.SetActive(true);
                     break;
 
                 default:
-                    //_defaultMessageObj.SetActive(true);
+                    GameObject defaultMsgObj = _defaultMessageObjs[Random.Range(0, _defaultMessageObjs.Count)];
+                    defaultMsgObj.SetActive(true);
                     break;
             }
         }
@@ -56,6 +68,17 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             _welcomeMessageObj.SetActive(false);
             _startGameMessageObj.SetActive(true);
+        }
+
+        private void OnBuyTrap()
+        {
+            if (_gameProgress.Data.Level != 1)
+            {
+                return;
+            }
+
+            _trapsUnlockMessageObj.SetActive(false);
+            _havocMessageObj.SetActive(true);
         }
     }
 }
