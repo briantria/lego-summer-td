@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Cinemachine;
 using Unity.LEGO.Game;
@@ -31,6 +30,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
         #endregion
 
         private TurretController _turretController;
+        private GameProgressData _gameProgress;
+        private WeaponDataModel _data;
 
         private void OnEnable()
         {
@@ -42,9 +43,27 @@ namespace Lego.SummerJam.NoFrogsAllowed
             GameLoopController.OnChangeGameState -= OnChangeGameState;
         }
 
+        private void Awake()
+        {
+            _data = new WeaponDataModel
+            {
+                ID = _id,
+                Type = WeaponType.Cannon
+            };
+
+            _gameProgress = AssetResources.GameProgress;
+        }
+
         private void Start()
         {
-            ShowTurretSeller();
+            if (_gameProgress.Data.WeaponList.Contains(_data))
+            {
+                ShowTurret();
+            }
+            else
+            {
+                ShowTurretSeller();
+            }
         }
 
         private void ShowTurret()
@@ -105,6 +124,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void SellTurret()
         {
+            _gameProgress.Data.WeaponList.Remove(_data);
             int currentCoins = VariableManager.GetValue(_coins);
             VariableManager.SetValue(_coins, currentCoins + _price);
             ShowTurretSeller();
@@ -118,6 +138,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 return;
             }
 
+            _gameProgress.Data.WeaponList.Add(_data);
             VariableManager.SetValue(_coins, currentCoins - _price);
             OnBuyCannon?.Invoke();
             ShowTurret();

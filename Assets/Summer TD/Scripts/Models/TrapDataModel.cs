@@ -14,5 +14,16 @@ namespace Lego.SummerJam.NoFrogsAllowed
     { 
         public int ID { get; set; }
         public TrapType Type { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is TrapDataModel model &&
+                   ID == model.ID;
+        }
+
+        public override int GetHashCode()
+        {
+            return 1213502048 + ID.GetHashCode();
+        }
     }
 }

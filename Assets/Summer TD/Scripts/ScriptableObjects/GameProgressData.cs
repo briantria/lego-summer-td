@@ -25,12 +25,15 @@ namespace Lego.SummerJam.NoFrogsAllowed
             Data = new GameProgressDataModel
             {
                 Level = DEFAULT_LEVEL,
-                Money = DEFAULT_MONEY
+                Money = DEFAULT_MONEY,
+                WeaponList = new HashSet<WeaponDataModel>(),
+                TrapList = new HashSet<TrapDataModel>()
             };
         }
 
         public void LoadData()
         {
+            //PlayerPrefs.DeleteKey(PK_NFA_GAMEDATA);
             string json = PlayerPrefs.GetString(PK_NFA_GAMEDATA, string.Empty);
             if (string.IsNullOrEmpty(json))
             {

@@ -13,5 +13,16 @@ namespace Lego.SummerJam.NoFrogsAllowed
     {
         public int ID { get; set; }
         public WeaponType Type { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is WeaponDataModel model &&
+                   ID == model.ID;
+        }
+
+        public override int GetHashCode()
+        {
+            return 1213502048 + ID.GetHashCode();
+        }
     }
 }

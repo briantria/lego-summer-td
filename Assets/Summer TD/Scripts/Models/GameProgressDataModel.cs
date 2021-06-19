@@ -9,7 +9,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         public int Level { get; set; }
         public int Money { get; set; }
         public bool Win { get; set; }
-        public List<WeaponDataModel> WeaponList { get; set; }
-        public List<TrapDataModel> TrapList { get; set; }
+        public HashSet<WeaponDataModel> WeaponList { get; set; }
+        public HashSet<TrapDataModel> TrapList { get; set; }
     }
 }
