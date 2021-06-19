@@ -50,6 +50,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             GameStartAction.OnSelectCannon -= OnSelectTurret;
             CameraDirector.OnLevelIntroDone -= NextState;
 
+            _gameProgress.Data.Money = VariableManager.GetValue(_coins);
             _gameProgress.SaveData();
         }
 
