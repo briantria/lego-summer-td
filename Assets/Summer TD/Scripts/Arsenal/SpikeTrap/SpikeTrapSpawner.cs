@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Unity.LEGO.Game;
 
@@ -27,6 +27,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private GameObject _spikeTrapObj;
         private GameProgressData _gameProgress;
+        private TrapDataModel _data;
 
         #region Unity Messages
         private void OnEnable()
@@ -39,21 +40,50 @@ namespace Lego.SummerJam.NoFrogsAllowed
             GameLoopController.OnChangeGameState -= OnGameStateChange;
         }
 
-        private void Start()
+        private void Awake()
         {
-            _gameProgress = AssetResources.GameProgress;
-            if (_gameProgress.Data.Level > 0)
+            _data = new TrapDataModel
             {
-                ShowSpikeSeller();
-                return;
-            }
+                ID = _id,
+                Type = TrapType.Spikes
+            };
+            _gameProgress = AssetResources.GameProgress;
+        }
 
+        //private void Start()
+        //{
+        //    if (_gameProgress.Data.Level > 0)
+        //    {
+        //        _buyerObj.SetActive(false);
+        //        _sellerObj.SetActive(false);
+        //        return;
+        //    }
+
+        //    TrapDataModel savedTrap = _gameProgress.Data.TrapList
+        //        .Where(trap =>
+        //        {
+        //            return trap.Type == TrapType.Spikes && trap.ID == _id;
+        //        })
+        //        .FirstOrDefault();
+
+        //    if (savedTrap != null)
+        //    {
+        //        ShowSpikeTrap();
+        //    }
+        //    else
+        //    {
+        //        ShowSpikeSeller();
+        //    }
+        //}
+        #endregion
+
+        public void HideAll()
+        {
             _buyerObj.SetActive(false);
             _sellerObj.SetActive(false);
         }
-        #endregion
 
-        private void ShowSpikeSeller()
+        public void ShowSpikeSeller()
         {
             _sellerObj.SetActive(true);
             _trapGroundObj.SetActive(true);
@@ -64,7 +94,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             }
         }
 
-        private void ShowSpikeTrap()
+        public void ShowSpikeTrap()
         {
             _sellerObj.SetActive(false);
             _trapGroundObj.SetActive(false);
@@ -81,12 +111,14 @@ namespace Lego.SummerJam.NoFrogsAllowed
                 return;
             }
 
+            _gameProgress.Data.TrapList.Add(_data);
             VariableManager.SetValue(_coins, currentCoins - _price);
             ShowSpikeTrap();
         }
 
         private void SellTrap()
         {
+            _gameProgress.Data.TrapList.Remove(_data);
             int currentCoins = VariableManager.GetValue(_coins);
             VariableManager.SetValue(_coins, currentCoins + _price);
             ShowSpikeSeller();
