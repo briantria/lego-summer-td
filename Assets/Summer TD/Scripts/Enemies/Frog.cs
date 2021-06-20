@@ -56,7 +56,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
             Vector3 jumpVector = _target.position - transform.position;
             jumpVector.y = 0;
-            jumpVector.y = jumpVector.magnitude * 5;
+            jumpVector.y = jumpVector.magnitude * 2.0f;// * 5;
             jumpVector.Normalize();
             jumpVector *= _jumpStrength * (1.0f - _slowRate);
 
@@ -118,7 +118,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
             RaycastHit[] hits;
 
             //We raycast down 1 pixel from this position to check for a collider
-            float radius = 0.1f;
+            float radius = 0.2f;
             Vector3 positionToCheck = transform.position;
             positionToCheck.y -= radius * 1.01f;
             hits = Physics.SphereCastAll(positionToCheck, radius, new Vector3(0, -1, 0), radius, 1 << mask.value);

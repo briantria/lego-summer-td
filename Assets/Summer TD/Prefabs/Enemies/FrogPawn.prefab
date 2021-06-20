@@ -66,9 +66,9 @@ MonoBehaviour:
   _frogModel: {fileID: 3602743248087549375}
   _coinDropParticle: {fileID: 5405221870440904620}
   _life: 5
-  _jumpStrength: 50
+  _jumpStrength: 40
   _damage: 1
-  _coinDrop: 10
+  _coinDrop: 5
   _baseHealth: {fileID: 11400000, guid: c355e99b28caed84dbf0613ef3ba481a, type: 2}
   _coins: {fileID: 11400000, guid: 74aa89e56d40b27478f9e25850a8a552, type: 2}
   _enemyOnField: {fileID: 11400000, guid: d9160fe406f20d249b755b15b3ed137b, type: 2}
