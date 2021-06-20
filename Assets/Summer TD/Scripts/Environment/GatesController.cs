@@ -20,6 +20,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             GameLoopController.OnChangeGameState -= OnGameStateChange;
         }
+
         private void OnGameStateChange(GameState currentGameState)
         {
             switch (currentGameState)
@@ -30,12 +31,28 @@ namespace Lego.SummerJam.NoFrogsAllowed
                         _explodingGates = Instantiate(_explodingGatesPrefab, transform);
                         _explodingGates.SetActive(true);
                         _explodingGates.transform.localPosition = Vector3.zero;
+                        StartCoroutine(CleanUpRoutine());
                         break;
                     }
 
                 default:
                     break;
             }
+        }
+
+        private IEnumerator CleanUpRoutine()
+        {
+            yield return new WaitForSeconds(4.0f);
+
+            for (int idx = 0; idx < 3; ++idx)
+            {
+                _explodingGates.SetActive(false);
+                yield return new WaitForSeconds(0.08f);
+                _explodingGates.SetActive(true);
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            Destroy(_explodingGates);
         }
     }
 }

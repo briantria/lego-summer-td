@@ -13,13 +13,18 @@ MonoBehaviour:
   m_Name: Level_0
   m_EditorClassIdentifier: 
   _waveSpawnDataList:
-  - _waveDelay: 0
-    _spawnInterval: 0.22
+  - _waveDelay: 0.5
+    _spawnInterval: 2
     _spawnCount: 3
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
-  - _waveDelay: 6.74
-    _spawnInterval: 1
-    _spawnCount: 9
+  - _waveDelay: 8
+    _spawnInterval: 2
+    _spawnCount: 3
+    _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
+      type: 3}
+  - _waveDelay: 8
+    _spawnInterval: 2
+    _spawnCount: 3
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}

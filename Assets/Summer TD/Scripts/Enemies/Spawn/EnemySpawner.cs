@@ -19,6 +19,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         #endregion
 
         private LevelSpawnData _levelSpawnData;
+        private GameProgressData _gameProgress;
 
         #region Unity Messages
         private void OnEnable()
@@ -44,7 +45,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         public void Activate()
         {
-            _levelSpawnData = Resources.Load<LevelSpawnData>("LevelSpawnData/Level_0");
+            _gameProgress = AssetResources.GameProgress;
+            _levelSpawnData = Resources.Load<LevelSpawnData>("LevelSpawnData/Level_" + _gameProgress.Data.Level);
 
             int totalEnemyToSpawn = 0;
             foreach (WaveSpawnData waveData in _levelSpawnData.SpawnList)
