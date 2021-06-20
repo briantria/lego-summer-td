@@ -18,12 +18,12 @@ MonoBehaviour:
     _spawnCount: 3
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
-  - _waveDelay: 8
+  - _waveDelay: 5
     _spawnInterval: 2
     _spawnCount: 3
-    _enemy: {fileID: 1826870719048086441, guid: 481830d850393fc44910ff57329804c4,
+    _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
-  - _waveDelay: 8
+  - _waveDelay: 5
     _spawnInterval: 2
     _spawnCount: 3
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
