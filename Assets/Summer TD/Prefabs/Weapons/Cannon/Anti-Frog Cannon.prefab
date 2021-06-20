@@ -482,11 +482,11 @@ MonoBehaviour:
   m_BrickPivotOffset: {x: -0.40039128, y: 0.24855812, z: -0.0011262596}
   m_Audio: {fileID: 8300000, guid: 990463f92f00248b09c640c2fefed602, type: 3}
   m_AudioVolume: 1
-  m_Pause: 1
+  m_Pause: 0.3
   m_Repeat: 0
   m_Projectile: {fileID: 5790906600560048734, guid: 90d8d1f4cbc509040affa80085e7b295,
     type: 3}
-  m_Velocity: 45
+  m_Velocity: 60
   m_Accuracy: 100
   m_Lifetime: 3
   m_UseGravity: 1
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 8338813387523616292}
   - component: {fileID: 1273413239334035705}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: Anti-Frog Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2390,6 +2390,7 @@ GameObject:
   - component: {fileID: 8447070041699689280}
   - component: {fileID: 1312318545180673763}
   - component: {fileID: 8139687875038943486}
+  - component: {fileID: 2396712862607674811}
   m_Layer: 0
   m_Name: 3023 (6)
   m_TagString: Untagged
@@ -2538,14 +2539,40 @@ MonoBehaviour:
   m_BrickPivotOffset: {x: -0.40039128, y: 0.24855812, z: -0.0011262596}
   m_Audio: {fileID: 8300000, guid: 990463f92f00248b09c640c2fefed602, type: 3}
   m_AudioVolume: 1
-  m_Pause: 2
+  m_Pause: 5
   m_Repeat: 1
   m_Projectile: {fileID: 5790906600560048734, guid: 90d8d1f4cbc509040affa80085e7b295,
     type: 3}
-  m_Velocity: 45
-  m_Accuracy: 100
+  m_Velocity: 60
+  m_Accuracy: 80
   m_Lifetime: 3
   m_UseGravity: 1
+--- !u!114 &2396712862607674811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3453080054133215784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ee6b44308c74b839904d4c89e8c68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Scope: 1
+  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Random Trigger.png
+  m_FlashColour: {r: 1.6, g: 1.4509804, b: 1.1058824, a: 2}
+  m_Brick: {fileID: 6121204162010442776}
+  m_BrickPivotOffset: {x: -0.39999992, y: 0.23332489, z: -0.013929516}
+  Progress: 0
+  Goal: 0
+  m_Conditions: []
+  m_Target: 1
+  m_SpecificTargetActions:
+  - {fileID: 8139687875038943486}
+  m_Repeat: 1
+  m_MinTime: 3
+  m_MaxTime: 5
 --- !u!1 &3959142069750970942
 GameObject:
   m_ObjectHideFlags: 0
