@@ -34,6 +34,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         private Rigidbody _rb;
         private float _slowRate;
         private bool _isDead = false;
+        private float _pauseTime = 0.0f;
 
         private void Start()
         {
@@ -50,16 +51,20 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void FixedUpdate()
         {
-            if (_target == null || !IsGrounded())
+            _pauseTime += Time.deltaTime;
+            if (_target == null || !IsGrounded() || _pauseTime <= _jumpPause)
             {
                 return;
             }
 
+            _pauseTime = UnityEngine.Random.Range(0.0f, 1.0f);
             Vector3 jumpVector = _target.position - transform.position;
             jumpVector.y = 0;
             jumpVector.y = jumpVector.magnitude * 2.0f;// * 5;
             jumpVector.Normalize();
-            jumpVector *= _jumpStrength * (1.0f - _slowRate);
+
+            float randMult = UnityEngine.Random.Range(0.8f, 1.0f);
+            jumpVector *= _jumpStrength * (randMult - _slowRate);
 
             _rb.velocity = Vector3.zero;
             _rb.AddForce(jumpVector, ForceMode.Impulse);

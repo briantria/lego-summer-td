@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6921702089759577294}
   - component: {fileID: 8076446561680713147}
   m_Layer: 14
-  m_Name: FrogPawn
+  m_Name: Pawn Frog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   _coinDropParticle: {fileID: 5405221870440904620}
   _life: 5
   _jumpStrength: 40
+  _jumpPause: 0.5
   _damage: 1
   _coinDrop: 5
   _baseHealth: {fileID: 11400000, guid: c355e99b28caed84dbf0613ef3ba481a, type: 2}

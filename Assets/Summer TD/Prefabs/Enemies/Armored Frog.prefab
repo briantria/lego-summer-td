@@ -28992,7 +28992,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826870719048086441}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 10
   m_Drag: 2
   m_AngularDrag: 2
   m_UseGravity: 1
@@ -29015,7 +29015,8 @@ MonoBehaviour:
   _frogModel: {fileID: 7098303511494224627}
   _coinDropParticle: {fileID: 780502765730882134}
   _life: 20
-  _jumpStrength: 20
+  _jumpStrength: 180
+  _jumpPause: 2
   _damage: 1
   _coinDrop: 15
   _baseHealth: {fileID: 11400000, guid: c355e99b28caed84dbf0613ef3ba481a, type: 2}
@@ -29032,8 +29033,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 3, y: 3, z: 4}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &2563766175717840982
 GameObject:
   m_ObjectHideFlags: 0

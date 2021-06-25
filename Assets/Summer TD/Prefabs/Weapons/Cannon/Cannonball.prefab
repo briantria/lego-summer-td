@@ -9880,6 +9880,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shell: {fileID: 3586995146255473992}
   _explodeParticle: {fileID: 631509506539171733}
-  _explosionStrength: 50
+  _explosionStrength: 25
   _explosionRadius: 5
   _damage: 2

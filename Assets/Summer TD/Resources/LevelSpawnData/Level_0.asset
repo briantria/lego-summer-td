@@ -16,15 +16,25 @@ MonoBehaviour:
   - _waveDelay: 0.5
     _spawnInterval: 2
     _spawnCount: 3
-    _enemy: {fileID: 1826870719048086441, guid: bda299df911a58943ab88115126d19de,
+    _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
-  - _waveDelay: 5
+  - _waveDelay: 3
     _spawnInterval: 2
     _spawnCount: 3
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
-  - _waveDelay: 5
+  - _waveDelay: 3
     _spawnInterval: 2
     _spawnCount: 3
+    _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
+      type: 3}
+  - _waveDelay: 3
+    _spawnInterval: 2
+    _spawnCount: 5
+    _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
+      type: 3}
+  - _waveDelay: 5
+    _spawnInterval: 1
+    _spawnCount: 10
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
