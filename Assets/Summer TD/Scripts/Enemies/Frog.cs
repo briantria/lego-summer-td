@@ -18,6 +18,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         [Space(8)]
         [SerializeField] private float _life = 5.0f;
         [SerializeField] private float _jumpStrength = 2.0f;
+        [SerializeField] private float _jumpPause = 0.0f;
         [SerializeField] private int _damage = 1;
         [SerializeField] private int _coinDrop = 10;
         
