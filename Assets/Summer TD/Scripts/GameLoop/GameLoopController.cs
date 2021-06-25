@@ -22,6 +22,8 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         #region Serialized Fields
         [SerializeField] private MinifigController _minifigController;
+        [SerializeField] private int _coinAmt;
+        [SerializeField] private int _level;
 
         [Space(10)]
         // Note: The following 'Variable(s)' was created using LEGO Microgame Editors
@@ -61,8 +63,10 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private void Awake()
         {
+            Application.targetFrameRate = -1;
             _gameProgress = AssetResources.GameProgress;
-            _gameProgress.LoadData();
+            //_gameProgress.LoadData();
+            _gameProgress.LoadDefaults();
         }
 
         private void Start()
@@ -73,6 +77,9 @@ namespace Lego.SummerJam.NoFrogsAllowed
 
         private IEnumerator LoadGameDataRoutine()
         {
+            _gameProgress.Data.Level = _level;
+            _gameProgress.Data.Money = _coinAmt;
+
             yield return new WaitForEndOfFrame();
             VariableManager.SetValue(_coins, _gameProgress.Data.Money);
         }

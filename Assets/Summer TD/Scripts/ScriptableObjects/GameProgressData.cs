@@ -48,6 +48,7 @@ namespace Lego.SummerJam.NoFrogsAllowed
         {
             string json = JsonConvert.SerializeObject(Data);
             PlayerPrefs.SetString(PK_NFA_GAMEDATA, json);
+            //PlayerPrefs.Save();
         }
     }
 }
