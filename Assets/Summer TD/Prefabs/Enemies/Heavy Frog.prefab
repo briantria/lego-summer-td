@@ -488,8 +488,8 @@ MonoBehaviour:
   _frogModel: {fileID: 5811140221981452947}
   _coinDropParticle: {fileID: 5405221870440904620}
   _life: 10
-  _jumpStrength: 30
-  _jumpPause: 0.8
+  _jumpStrength: 40
+  _jumpPause: 1.3
   _damage: 1
   _coinDrop: 10
   _baseHealth: {fileID: 11400000, guid: c355e99b28caed84dbf0613ef3ba481a, type: 2}

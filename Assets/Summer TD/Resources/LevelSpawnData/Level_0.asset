@@ -25,16 +25,16 @@ MonoBehaviour:
       type: 3}
   - _waveDelay: 3
     _spawnInterval: 2
-    _spawnCount: 3
+    _spawnCount: 5
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
   - _waveDelay: 3
     _spawnInterval: 2
-    _spawnCount: 5
+    _spawnCount: 10
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}
-  - _waveDelay: 5
-    _spawnInterval: 1
+  - _waveDelay: 2
+    _spawnInterval: 2
     _spawnCount: 10
     _enemy: {fileID: 1826870719048086441, guid: 4466ebded3ef0b34d8662e0475c88a75,
       type: 3}

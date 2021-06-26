@@ -21905,7 +21905,7 @@ PrefabInstance:
     - target: {fileID: 4506487625966563833, guid: d39f04291e3b341f78bf4cfa451accd7,
         type: 3}
       propertyPath: m_SpeechBubbleInfos.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4506487625966563833, guid: d39f04291e3b341f78bf4cfa451accd7,
         type: 3}
@@ -21920,11 +21920,16 @@ PrefabInstance:
     - target: {fileID: 4506487625966563833, guid: d39f04291e3b341f78bf4cfa451accd7,
         type: 3}
       propertyPath: m_SpeechBubbleInfos.Array.data[1].Text
-      value: This is our last stand against those frogs!
+      value: It's been hundreds of years since the beginning of this war.
       objectReference: {fileID: 0}
     - target: {fileID: 4506487625966563833, guid: d39f04291e3b341f78bf4cfa451accd7,
         type: 3}
       propertyPath: m_SpeechBubbleInfos.Array.data[2].Text
+      value: I forgot the reason but this is our last stand.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506487625966563833, guid: d39f04291e3b341f78bf4cfa451accd7,
+        type: 3}
+      propertyPath: m_SpeechBubbleInfos.Array.data[3].Text
       value: Start by buying a cannon for our defense.
       objectReference: {fileID: 0}
     - target: {fileID: 5174071447331135437, guid: d39f04291e3b341f78bf4cfa451accd7,

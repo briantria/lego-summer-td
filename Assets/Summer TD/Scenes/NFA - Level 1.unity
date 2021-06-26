@@ -7235,12 +7235,12 @@ PrefabInstance:
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[0].Type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[0].Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
@@ -67888,12 +67888,12 @@ PrefabInstance:
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[0].Type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[1].Type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
@@ -67903,12 +67903,12 @@ PrefabInstance:
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[0].Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[1].Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}

@@ -2315,6 +2315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 46594288}
+  - component: {fileID: 46594289}
   m_Layer: 0
   m_Name: GameData
   m_TagString: Untagged
@@ -2340,6 +2341,27 @@ Transform:
   m_Father: {fileID: 1999795999}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46594289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46594287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf391e8b8fbf42e2af4a8b2b3e05f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Scope: 1
+  m_IconPath: Assets/LEGO/Gizmos/LEGO Behaviour Icons/Lose Action.png
+  m_FlashColour: {r: 1.4117647, g: 0, b: 0, a: 2}
+  m_Brick: {fileID: 0}
+  m_BrickPivotOffset: {x: 0, y: 0, z: 0}
+  m_Audio: {fileID: 8300000, guid: 438ff41576b5649429cc77e377bd76c6, type: 3}
+  m_AudioVolume: 1
+  m_ObjectiveConfigurations: []
+  m_Triggers: []
 --- !u!1 &48801568
 GameObject:
   m_ObjectHideFlags: 0
@@ -7235,12 +7257,12 @@ PrefabInstance:
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[0].Type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[0].Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
@@ -9245,7 +9267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minifigController: {fileID: 4124099547603127727}
-  _coinAmt: 1200
+  _coinAmt: 2000
   _level: 3
   _coins: {fileID: 11400000, guid: 74aa89e56d40b27478f9e25850a8a552, type: 2}
 --- !u!4 &274862585
@@ -67888,12 +67910,12 @@ PrefabInstance:
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[0].Type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[1].Type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
@@ -67903,11 +67925,16 @@ PrefabInstance:
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[0].Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
         type: 3}
       propertyPath: m_Conditions.Array.data[1].Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
+        type: 3}
+      propertyPath: m_Conditions.Array.data[2].Value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5351750847045602245, guid: 0ad34d748b0f8584ab90acec1c11f21f,
@@ -85385,12 +85412,12 @@ PrefabInstance:
     - target: {fileID: 2742812528658015894, guid: cc1e3f9715798ea4fab9885b641b3752,
         type: 3}
       propertyPath: m_WinScene
-      value: NFA Win 3
+      value: NFA - Story
       objectReference: {fileID: 0}
     - target: {fileID: 2742812528658015894, guid: cc1e3f9715798ea4fab9885b641b3752,
         type: 3}
       propertyPath: m_LoseScene
-      value: NFA Lose 3
+      value: NFA - Story
       objectReference: {fileID: 0}
     - target: {fileID: 2742812528658015895, guid: cc1e3f9715798ea4fab9885b641b3752,
         type: 3}

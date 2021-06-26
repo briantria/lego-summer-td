@@ -8688,9 +8688,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frogModel: {fileID: 3527520114438866242}
   _coinDropParticle: {fileID: 780502765730882134}
-  _life: 1000
-  _jumpStrength: 300
-  _jumpPause: 3
+  _life: 2000
+  _jumpStrength: 360
+  _jumpPause: 1.6
   _damage: 100
   _coinDrop: 15
   _baseHealth: {fileID: 11400000, guid: c355e99b28caed84dbf0613ef3ba481a, type: 2}
